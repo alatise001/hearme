@@ -1,95 +1,90 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+// 'use client'
+
+import React from "react";
+import Category from "./components/category"
+// import useProductsDataManager from "@/hooks/useProductsDataManager";
 
 export default function Home() {
+
+  // const { isLoading, productLists, dispatch } = useProductsDataManager()
+
+  // console.log(data.products);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div >
+      <div className='hero d-flex'>
+        <div className='heroinnerdiv d-flex'>
+
+          <h4 className='new-tag'>NEW PRODUCT</h4>
+
+          <span className=' title header-title'>
+            <h1>
+              XX99 MARK II
+            </h1>
+            <h1>
+              HEADPHONES
+            </h1>
+          </span>
+
+          <p className='pgh header-pgh'>
+            Experience natural, lifelike
+            audio and exceptional build
+            quality made for the passionate
+            music enthusiast.
+          </p>
+
+          <button className='product-btn header-btn'>SEE PRODUCTS</button>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div >
+        <Category />
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <div className="homepage-speaker-detail-1 d-flex">
+        <img className="homepage-speaker-image-1" src="./assets/home/mobile/image-speaker-zx9.png" alt="" />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <span className="title homepage-speaker-header-1">
+          <h1>ZX9</h1>
+          <h1>SPEAKER</h1>
+        </span>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+        <p className=" pgh homepage-speaker-pgh-1">
+          Upgrade to premium
+          speakers that are phenomenally built to
+          deliver truly remarkable sound.
+        </p>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <button className="product-btn homepage-speaker-btn-1">
+          SEE PRODUCT
+        </button>
+
       </div>
-    </main>
+
+      <div className="homepage-speaker-detail-2 d-flex">
+        <h1 className="homepage-speaker-header-2">
+          ZX7 SPEAKER
+        </h1>
+
+        <button className="product-btn homepage-speaker-btn-2">
+          SEE PRODUCT
+        </button>
+      </div>
+
+      <div className="homepage-speaker-detail-3 d-flex">
+        <img className="homepage-speaker-image-3" src="./assets/home/mobile/image-earphones-yx1.jpg" alt="" />
+        <div className="homepage-speaker-div-3 d-flex">
+          <h1 className="homepage-speaker-header-2">
+            YX1 EARPHONES
+          </h1>
+
+          <button className="product-btn homepage-speaker-btn-2">
+            SEE PRODUCT
+          </button>
+        </div>
+      </div>
+
+    </div>
+
   )
 }

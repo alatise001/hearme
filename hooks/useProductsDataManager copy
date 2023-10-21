@@ -1,0 +1,45 @@
+'use client'
+
+import React from 'react'
+import UseRequestData from "@/hooks/useRequestData";
+import getData from "@/hooks/productReducer";
+
+function useProductsDataManager() {
+    const {
+        // data
+        data: products,
+        requestStatus,
+        error,
+        updateRecord,
+        insertRecord,
+        deleteRecord,
+    } = UseRequestData();
+
+    const [{ isLoading, productLists }, dispatch] = React.useReducer(getData, {
+        isLoading: true,
+        productLists: []
+    })
+    const [iserror, setError] = React.useState("")
+
+
+    React.useEffect(() => {
+        // filter here
+        // wrap in try catch
+        // REQUEST_STATUS === SUCCESS else FAILURE
+        // set error
+        dispatch({
+            type: "setGetData",
+            data: products
+        })
+
+        return () => {
+            console.log("cleanup")
+        }
+
+    })
+
+
+    return { isLoading, productLists, error, dispatch }
+}
+
+export default useProductsDataManager

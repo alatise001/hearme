@@ -1,7 +1,9 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
+import Link from 'next/link'
+import LayoutAbout from './components/layout-about'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +13,53 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      {/* className={inter.className} */}
+      <body >
+        <header className='header d-flex'>
+          <img src="/assets/Group.svg" alt="" />
+          <img src="/assets/audiophile 2.svg" alt="" />
+          <img src="/assets/cart Icon.svg" alt="" />
+        </header>
+
+        <div>
+          {children}
+        </div>
+
+        <LayoutAbout />
+        <footer className='footer d-flex'>
+          <img src="/assets/audiophile 2.svg" alt="" />
+
+          <Link href={"#"}>
+            <h3 className='footerlinks'>HOME</h3>
+          </Link>
+
+          <Link href={"#"}>
+            <h3 className='footerlinks'>HEADPHONES</h3>
+          </Link>
+
+          <Link href={"#"}>
+            <h3 className='footerlinks'>SPEAKERS</h3>
+          </Link>
+
+          <Link href={"#"}>
+            <h3 className='footerlinks'>EARPHONES</h3>
+          </Link>
+
+          <p className='pgh footer-pgh'>
+            Audiophile is an all in one stop to fulfill your
+            audio needs. We're a small team of music lovers and sound
+            specialists who are devoted to helping you get
+            the most out of personal audio.
+            Come and visit our demo facility - we’re open 7 days a week.
+          </p>
+
+          <p className='pgh' style={{ color: "white" }}>Copyright 2021. All Rights Reserved</p>
+
+          <img src="/assets/Social.svg" alt="" />
+
+        </footer>
+      </body>
+
     </html>
   )
 }
