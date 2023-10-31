@@ -2,9 +2,10 @@
 
 import React from "react";
 import Category from "./components/category"
+import Header from "./components/header";
 // import useProductsDataManager from "@/hooks/useProductsDataManager";
 
-export default function Home() {
+export default function Page() {
 
   // const { isLoading, productLists, dispatch } = useProductsDataManager()
 
@@ -12,6 +13,7 @@ export default function Home() {
 
   return (
     <div >
+
       <div className='hero d-flex'>
         <div className='heroinnerdiv d-flex'>
 

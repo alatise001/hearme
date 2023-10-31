@@ -1,78 +1,34 @@
-'use client'
+// 'use client'
 import axios from 'axios'
-
-import useProductsDataManager from "@/hooks/useProductsDataManager";
-import UseRequestData from '@/hooks/useRequestData';
+import CategoryProduct from '@/app/components/category-product';
 
 async function fetchCategoryInfo(params) {
-    // const restUrl = "api/products/index"
 
-    const { productLists } = useProductsDataManager()
-    // const { isLoading, productLists, dispatch } = useProductsDataManager()
-    console.log(params);
-    console.log("hello");
-    console.log(productLists);
+    const result = await axios.get('http://localhost:3000/api/products')
 
-    // const result = await axios.get(restUrl)
-    // console.log(result);
-
-    const response = await fetch('/api/products/')
-    const dat = await response.json();
-    // return data
-    console.log(dat);
-
-
-
-    const {
-        data,
-        requestStatus,
-        error,
-        updateRecord,
-        insertRecord,
-        deleteRecord,
-    } = UseRequestData()
-
-    console.log(data);
-
-    const filteredObjects = productLists.filter(obj => obj.category === params);
+    const filteredObjects = result.data.products.filter(obj => obj.category === params.slug);
     return filteredObjects;
-
 }
 
 
-export default function ProductsCategories({ params }) {
-    const categoryInfo = fetchCategoryInfo(params)
+export default async function ProductsCategories({ params }) {
+    const categoryInfo = await fetchCategoryInfo(params)
+    // console.log(categoryInfo);
 
     // const { id, name, image, category, categoryImage, price, description, } = categoryInfo
+    return (
+        <>
+            <header className='category-header'>
+                {params.slug}
+            </header>
 
-    categoryInfo.map(map => (
-
-        <div className="category-product d-flex">
-            <div className="category-product-image-bg d-flex">
-                <img className="category-product-image" src="/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg" alt="" />
+            <div className='d-flex category-product-container' >
+                {
+                    categoryInfo.map(map => (
+                        <CategoryProduct key={map.id} slugs={params.slug} {...map} />
+                    ))
+                }
             </div>
-
-            <h4 className="new-tag " style={{ color: "#D87D4A;" }}> NEW PRODUCT</h4>
-
-            <span className="title">
-                <h1>{map.name} </h1>
-                {/* <h1>XX99 MARK II </h1> */}
-                <h1>HEADPHONES</h1>
-            </span>
-
-
-            <p className="pgh category-product-pgh ">The new XX99 Mark II headphones is
-                the pinnacle of pristine audio. It
-                redefines your premium headphone experience by
-                reproducing the balanced depth and precision of
-                studio-quality sound.</p>
-
-            <button className="product-btn header-btn" >
-                SEE PROUCT
-            </button>
-
-        </div>
-    ))
-
-
+        </>
+    )
 }

@@ -9,7 +9,7 @@ export const REQUEST_STATUS = {
     FAILURE: "failure"
 }
 
-const restUrl = "/api/products/"
+const restUrl = 'http://localhost:3000/api/products'
 
 function useProductsDataManager() {
 
@@ -33,7 +33,7 @@ function useProductsDataManager() {
                 console.log(result.data.products);
                 dispatch({
                     type: "setGetData",
-                    data: result
+                    data: result.data.products
                 })
             } catch (e) {
                 setRequestStatus(REQUEST_STATUS.FAILURE)

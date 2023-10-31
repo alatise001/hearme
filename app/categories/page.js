@@ -1,10 +1,10 @@
 import CategoryProduct from "../components/category-product"
 
-export default function Categories() {
+export default function Page() {
     return (
-        <div style={{ outline: "auto" }}>
-            <CategoryProduct />
-        </div>
+
+        <CategoryProduct />
+
 
     )
 }

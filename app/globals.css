@@ -326,7 +326,7 @@ a {
 }
 
 .category-product {
-  outline: auto;
+  /* outline: auto; */
   justify-content: space-between;
   height: 100vh;
 }
@@ -364,4 +364,12 @@ a {
   line-height: normal;
   letter-spacing: 0.125rem;
   text-transform: uppercase;
+}
+
+.category-product-container {
+  gap: 2rem;
+  margin: 3rem 0;
+  /* outline: auto; */
+  justify-content: none;
+  align-items: none;
 }

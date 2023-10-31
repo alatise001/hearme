@@ -1,7 +1,9 @@
 import './globals.css'
+import React from 'react'
 // import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import LayoutAbout from './components/layout-about'
+import Header from './components/header'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -11,37 +13,45 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       {/* className={inter.className} */}
       <body >
-        <header className='header d-flex'>
-          <img src="/assets/Group.svg" alt="" />
-          <img src="/assets/audiophile 2.svg" alt="" />
-          <img src="/assets/cart Icon.svg" alt="" />
-        </header>
 
-        <div>
+        <>
+          <Header />
+        </>
+
+        <main>
           {children}
-        </div>
+        </main>
 
-        <LayoutAbout />
+        <>
+          <LayoutAbout />
+        </>
+        <h2>
+
+        </h2>
+
         <footer className='footer d-flex'>
-          <img src="/assets/audiophile 2.svg" alt="" />
+          <Link href="/">
+            <img src="/assets/audiophile 2.svg" alt="" />
+          </Link>
 
-          <Link href={"#"}>
+          <Link href={"/"}>
             <h3 className='footerlinks'>HOME</h3>
           </Link>
 
-          <Link href={"#"}>
+          <Link href={`/categories/${"headphones"}`}>
             <h3 className='footerlinks'>HEADPHONES</h3>
           </Link>
 
-          <Link href={"#"}>
+          <Link href={`/categories/${"speakers"}`}>
             <h3 className='footerlinks'>SPEAKERS</h3>
           </Link>
 
-          <Link href={"#"}>
+          <Link href={`/categories/${"earphones"}`}>
             <h3 className='footerlinks'>EARPHONES</h3>
           </Link>
 
