@@ -1,7 +1,8 @@
 import React from 'react'
 import Category from './category'
+import Link from 'next/link'
 
-function CategoryProduct({ name, description, newProduct, categoryImage }) {
+function CategoryProduct({ name, description, newProduct, categoryImage, slug }) {
     // {name, CategoryImage new description}  
     return (
         <>
@@ -21,9 +22,11 @@ function CategoryProduct({ name, description, newProduct, categoryImage }) {
 
                 <p className="pgh category-product-pgh ">{description}</p>
 
-                <button className="product-btn header-btn" >
-                    SEE PROUCT
-                </button>
+                <Link href={`/products/${slug}`}>
+                    <button className="product-btn header-btn" >
+                        SEE PROUCT
+                    </button>
+                </Link>
 
             </div>
         </>

@@ -30,7 +30,7 @@ function useProductsDataManager() {
             try {
                 const result = await axios.get(restUrl)
                 setRequestStatus(REQUEST_STATUS.SUCCESS)
-                console.log(result.data.products);
+                // console.log(result.data.products);
                 dispatch({
                     type: "setGetData",
                     data: result.data.products
@@ -44,7 +44,7 @@ function useProductsDataManager() {
         getFunc()
 
         return () => {
-            console.log("cleanup")
+            // console.log("cleanup")
         }
 
     }, [])

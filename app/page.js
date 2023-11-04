@@ -1,15 +1,8 @@
-// 'use client'
-
 import React from "react";
+import Link from "next/link";
 import Category from "./components/category"
-import Header from "./components/header";
-// import useProductsDataManager from "@/hooks/useProductsDataManager";
 
 export default function Page() {
-
-  // const { isLoading, productLists, dispatch } = useProductsDataManager()
-
-  // console.log(data.products);
 
   return (
     <div >
@@ -35,7 +28,9 @@ export default function Page() {
             music enthusiast.
           </p>
 
-          <button className='product-btn header-btn'>SEE PRODUCTS</button>
+          <Link href={`/products/${"xx99-mark-one-headphones"}`}>
+            <button className='product-btn header-btn'>SEE PRODUCTS</button>
+          </Link>
         </div>
       </div>
 
@@ -57,20 +52,26 @@ export default function Page() {
           deliver truly remarkable sound.
         </p>
 
-        <button className="product-btn homepage-speaker-btn-1">
-          SEE PRODUCT
-        </button>
+
+        <Link href={`/products/${"zx9-speaker"}`}>
+          <button className="product-btn homepage-speaker-btn-1">
+            SEE PRODUCT
+          </button>
+        </Link>
 
       </div>
+
 
       <div className="homepage-speaker-detail-2 d-flex">
         <h1 className="homepage-speaker-header-2">
           ZX7 SPEAKER
         </h1>
 
-        <button className="product-btn homepage-speaker-btn-2">
-          SEE PRODUCT
-        </button>
+        <Link href={`/products/${"zx7-speaker"}`}>
+          <button className="product-btn homepage-speaker-btn-2">
+            SEE PRODUCT
+          </button>
+        </Link>
       </div>
 
       <div className="homepage-speaker-detail-3 d-flex">
@@ -79,10 +80,11 @@ export default function Page() {
           <h1 className="homepage-speaker-header-2">
             YX1 EARPHONES
           </h1>
-
-          <button className="product-btn homepage-speaker-btn-2">
-            SEE PRODUCT
-          </button>
+          <Link href={`/products/${"yx1-earphones"}`}>
+            <button className="product-btn homepage-speaker-btn-2">
+              SEE PRODUCT
+            </button>
+          </Link>
         </div>
       </div>
 

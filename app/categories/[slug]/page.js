@@ -1,19 +1,26 @@
-// 'use client'
-import axios from 'axios'
+'use client'
+// import axios from 'axios'
 import CategoryProduct from '@/app/components/category-product';
-
-async function fetchCategoryInfo(params) {
-
-    const result = await axios.get('http://localhost:3000/api/products')
-
-    const filteredObjects = result.data.products.filter(obj => obj.category === params.slug);
-    return filteredObjects;
-}
+import useProductsDataManager from '@/hooks/useProductsDataManager';
 
 
-export default async function ProductsCategories({ params }) {
-    const categoryInfo = await fetchCategoryInfo(params)
+// async function fetchCategoryInfo(params) {
+
+//     const result = await axios.get('http://localhost:3000/api/products')
+
+//     const filteredObjects = result.data.products.filter(obj => obj.category === params.slug);
+//     return filteredObjects;
+// }
+
+
+export default function ProductsCategories({ params }) {
+    // const categoryInfo = await fetchCategoryInfo(params)
     // console.log(categoryInfo);
+    const { isLoading, productLists, iserror, dispatch } = useProductsDataManager()
+    // console.log(productLists, 'ran');
+
+    const filteredObjects = productLists.filter(obj => obj.category === params.slug);
+
 
     // const { id, name, image, category, categoryImage, price, description, } = categoryInfo
     return (
@@ -24,7 +31,7 @@ export default async function ProductsCategories({ params }) {
 
             <div className='d-flex category-product-container' >
                 {
-                    categoryInfo.map(map => (
+                    filteredObjects.map(map => (
                         <CategoryProduct key={map.id} slugs={params.slug} {...map} />
                     ))
                 }
