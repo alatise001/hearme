@@ -22,7 +22,7 @@ export default function Product({ params }) {
                 <img className='category-product-image' src={res[0].categoryImage.mobile} alt="" />
             </div>
 
-            <div >
+            <div className="product-info-div" >
                 {res[0].newProduct ? (<h4 className='new-tag' style={{ color: "#D87D4A", textAlign: "start" }}>new product</h4>) : ""}
 
 
@@ -50,16 +50,20 @@ export default function Product({ params }) {
                 </p>
 
 
-                <div>
+                <div className="product-info-div-box">
 
                     <h2 style={{ textAlign: "start" }} className='sub-title'>
                         in the box
                     </h2>
 
-                    {res[0].includes.map((map, index) => (
+                    <div>
 
-                        <h4 key={index} className='qty'> <span className='qty-span'>x{map.quantity}</span>{map.item}</h4>
-                    ))}
+                        {res[0].includes.map((map, index) => (
+
+
+                            <h4 key={index} className='qty'> <span className='qty-span'>x{map.quantity}</span>{map.item}</h4>
+                        ))}
+                    </div>
                 </div>
 
             </div>

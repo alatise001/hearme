@@ -1,8 +1,9 @@
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import Category from '../components/category'
+import BackBtn from '../components/backBtn'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
     title: 'Create Next App',
@@ -12,15 +13,16 @@ export const metadata = {
 export default function ProductsLayout({ children }) {
     return (
         <section>
-
+            <BackBtn />
             {/* <div className={inter.className}> */}
             <div>
                 {children}
             </div>
 
-            <Category />
+            <div className='header-category-margin'>
+                <Category />
+            </div>
             {/* </div> */}
-
         </section>
     )
 }

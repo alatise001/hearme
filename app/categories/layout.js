@@ -11,15 +11,15 @@ export const metadata = {
 export default function CatergoriesLayout({ children }) {
     return (
         <section>
-
             {/* <div className={inter.className}> */}
             <div>
                 {children}
             </div>
 
-            <Category />
+            <div className='header-category-margin'>
+                <Category />
+            </div>
             {/* </div> */}
-
         </section>
     )
 }

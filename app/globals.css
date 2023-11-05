@@ -31,6 +31,11 @@ a {
   }
 } */
 
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .d-flex {
   display: flex;
   flex-direction: column;
@@ -89,10 +94,7 @@ a {
 
 
 .toggleNav {
-
-  outline: auto;
-
-
+  /* outline: auto; */
   position: absolute;
   background: #FFF;
   left: 0;
@@ -110,7 +112,7 @@ a {
 .showNav {
   width: 90%;
   transform: translateX(0px);
-  height: 80vh;
+  height: 89vh;
 }
 
 .footer {
@@ -203,6 +205,13 @@ a {
   /* outline: auto; */
   align-items: center;
   justify-content: center;
+  /* margin-top: 7rem;
+  margin-bottom: 3rem; */
+}
+
+.header-category-margin {
+  margin-top: 7rem;
+  margin-bottom: 2rem;
 }
 
 .header-category {
@@ -371,7 +380,7 @@ a {
 .category-product {
   /* outline: auto; */
   justify-content: space-between;
-  height: 100vh;
+  height: 90vh;
 }
 
 .category-product-image-bg {
@@ -410,12 +419,42 @@ a {
 }
 
 .category-product-container {
-  gap: 2rem;
+  gap: 3rem;
   margin: 3rem auto;
   /* outline: auto; */
   width: 90%;
   justify-content: none;
   align-items: none;
+}
+
+.back-btn-div {
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.back-btn {
+  color: #000;
+  font-family: Manrope;
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5625rem;
+  opacity: 0.5;
+  border: none;
+  background-color: white;
+}
+
+.product-info-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.product-info-div-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .add-to-cart-div {
@@ -510,4 +549,45 @@ a {
 .other-product-img {
   /* width: 5.42856rem; */
   height: 6rem;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  outline: auto;
+  height: 60vh;
+  margin: 3rem auto;
+  width: 90%;
+  gap: 2rem;
+}
+
+.cart-title {
+  outline: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-items {
+  height: 100%;
+}
+
+.cart-details {
+  outline: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+}
+
+.cart-total {
+  outline: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart-button {
+  width: 100%;
 }
