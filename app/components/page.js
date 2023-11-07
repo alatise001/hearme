@@ -1,55 +1,46 @@
-import Link from "next/link";
-
-
 export default function Components() {
     return (
-        <div className="cart">
+        <div className="confirm-container">
+            <div className="confirm">
+                <div className="checkbox d-flex">
+                    <img src="/assets/Check.svg" alt="" />
 
-            <div className="cart-title" >
-                <h2>CART <span>(0)</span></h2>
-                <button>Remove all</button>
-            </div>
-
-            <div className="cart-items">
-                <div className="cart-details">
-
-                    <div>
-                        <img src="" alt="" />
-                    </div>
-
-                    <div>
-                        <h3>XX99MK II</h3>
-                        <h4>$2,999</h4>
-                    </div>
-
-                    <button>1</button>
                 </div>
 
-                <div className="cart-details">
-                    <img src="" alt="" />
-                    <div>
-                        <h3>XX99MK II</h3>
-                        <h4>$2,999</h4>
+                <h1 className="confirmation-header">THANK YOU
+                    FOR YOUR ORDER</h1>
+                <p className="confirmation">You will receive an email confirmation shortly.</p>
+
+                <div className="confirm-info-div">
+                    <div className="confirm-products-div">
+                        <div className="cart-details">
+
+                            <img className="cart-img" src="/assets/cart/image-xx59-headphones.jpg" alt="" />
+
+                            <div className="cart-info">
+                                <h3 className="cart-product-name">XX99MK II</h3>
+                                <h4 className="cart-product-price">$2,999</h4>
+                            </div>
+
+                            <div className='confirm-qty' >
+                                x1
+                            </div>
+
+                        </div>
+
+                        <p className="others">and 2 other item(s)</p>
                     </div>
-                    <button>1</button>
+
+                    <div className="confirm-total-div">
+                        <h4 className="confirm-title" style={{ color: "white" }}>GRAND TOTAL</h4>
+                        <h3 className="confirm-amount" style={{ color: "white" }}>$ 5,446</h3>
+                    </div>
                 </div>
 
-                <div className="cart-details">
-                    <img src="" alt="" />
-                    <div>
-                        <h3>XX99MK II</h3>
-                        <h4>$2,999</h4>
-                    </div>
-                    <button>1</button>
-                </div>
+                <button className="cart-button">
+                    BACK TO HOME
+                </button>
             </div>
-
-            <div className="cart-total">
-                <h4>TOTAL</h4>
-                <h3>$ 5,396</h3>
-            </div>
-
-            <button className="cart-button">CHECKOUT</button>
 
         </div>
     )
