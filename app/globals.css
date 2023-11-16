@@ -97,25 +97,29 @@ button {
 
 }
 
-
-.toggleNav {
-  /* outline: auto; */
+.toggle {
   position: absolute;
   background: #FFF;
-  left: 0;
   width: 0;
   overflow: hidden;
-  /* max-width: 290px; */
   z-index: 9;
   font-size: 18px;
-  box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
-  transform: translateX(-100px);
+  /* box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%); */
   transition: transform ease-in-out 0.2s;
-  /* height: 80vh; */
+}
+
+.toggleNav {
+  left: 0;
+  transform: translateX(-100px);
+}
+
+.toggleCart {
+  right: 0;
+  transform: translateX(100px);
 }
 
 .showNav {
-  width: 90%;
+  width: 100%;
   transform: translateX(0px);
   height: 89vh;
 }
@@ -563,6 +567,7 @@ button {
   /* justify-content: ; */
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
+  /* width: inherit; */
 }
 
 .cart {
@@ -570,12 +575,13 @@ button {
   display: flex;
   flex-direction: column;
   /* outline: auto; */
-  height: max-content;
+  height: 100vh;
   margin: 3rem auto;
   padding: 1.5rem;
-  width: 90%;
+  width: 100%;
   gap: 2rem;
   background-color: #FFF;
+  /* align-items: center; */
 }
 
 .cart-title {
@@ -717,7 +723,7 @@ button {
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  outline: auto;
+  /* outline: auto; */
   height: max-content;
   margin: 3rem auto;
   padding: 1.5rem;

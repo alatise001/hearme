@@ -1,4 +1,13 @@
+import { ChatContext } from '../context/chatContext';
+
 export default function Components() {
+
+    const { dispatch } = React.useContext(ChatContext)
+
+    function handleClick(params) {
+        dispatch({ type: "setChat", details: params })
+    }
+
     return (
         <div className="confirm-container">
             <div className="confirm">

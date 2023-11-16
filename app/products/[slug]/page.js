@@ -1,16 +1,26 @@
 'use client'
+import React from 'react';
 import useProductsDataManager from '@/hooks/useProductsDataManager';
 import Link from 'next/link';
+import { CartContext } from '@/app/contexts/cartContext';
+// import AddToCart from '@/app/components/addToCart';
 
 
 
 export default function Product({ params }) {
 
-    const { isLoading, productLists, iserror, dispatch } = useProductsDataManager()
+    const { data, dispatch } = React.useContext(CartContext)
+    console.log(data);
+
+    const { isLoading, productLists, iserror, } = useProductsDataManager()
 
     const res = productLists.filter(obj => obj.slug === params.slug);
     console.log(res);
     console.log(isLoading);
+
+    function handleClick(params) {
+        dispatch({ type: "setChat", details: params })
+    }
 
     if (isLoading) {
         return "...LOADING"
@@ -34,13 +44,14 @@ export default function Product({ params }) {
                 <h3 style={{ textAlign: "start" }}>$ {res[0].price}</h3>
 
                 <div className=' add-to-cart-div'>
+                    {/* <AddToCart /> */}
                     <div className=' add-to-cart-divs add-to-cart-span' >
-                        <span>−</span>
-                        <span>qty</span>
-                        <span>+</span>
+                        <span onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</span>
+                        <span>{data?.map(map => ((map.id === res[0].id) ? map.quantity : ""))}</span>
+                        <span onClick={() => dispatch({ type: "add", id: res[0].id })}>+</span>
                     </div>
 
-                    <button className='product-btn header-btn add-to-cart-divs'>add to cart</button>
+                    <button className='product-btn header-btn add-to-cart-divs' onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>add to cart</button>
                 </div>
 
                 <h2 style={{ textAlign: "start" }} className='sub-title'>features</h2>

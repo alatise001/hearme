@@ -62,8 +62,6 @@ async function handler(req, res) {
         } catch (e) {
             res.status(500).send(`Put/api/products/${id} status: 500 unexpected error`)
             console.log(`PUT/api/products/${id} status:500`, e);
-
-
         }
 
     }

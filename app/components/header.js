@@ -3,12 +3,22 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Category from './category';
+import Cart from './cart';
 
 export default function Header() {
 
     const [show, setShow] = useState(false)
+    const [cart, setCart] = useState(false)
 
     const toggleMenu = () => { setShow(prevState => !prevState); console.log(show); };
+    const toggleCart = () => { setCart(prevState => !prevState); console.log(cart); };
+
+    function toggle(params) {
+        if (show === true) {
+
+        }
+
+    }
 
     const ref = React.useRef();
     React.useEffect(() => {
@@ -33,16 +43,20 @@ export default function Header() {
         <>
             <header className='header d-flex'>
                 {/* <img src="/assets/Group.svg" alt="" /> */}
-                <div onClick={toggleMenu} >
+                <div onClick={cart ? null : toggleMenu} >
                     <img src="/assets/Group.svg" alt="" />
                 </div>
                 <Link href="/">
                     <img src="/assets/audiophile 2.svg" alt="" />
                 </Link>
-                <img src="/assets/cart Icon.svg" alt="" />
+
+                <div onClick={show ? null : toggleCart}>
+                    <img src="/assets/cart Icon.svg" alt="" />
+                </div>
             </header>
 
-            <div ref={ref} className={`toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Category /> </div>
+            <div ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Category /> </div>
+            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Cart /> </div>
 
         </>
     )

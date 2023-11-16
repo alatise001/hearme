@@ -4,6 +4,7 @@ import { Manrope } from 'next/font/google'
 import Link from 'next/link'
 import LayoutAbout from './components/layout-about'
 import Header from './components/header'
+import CartContextProvider from './contexts/cartContext'
 
 import Footer from './components/footer'
 const inter = Manrope({ subsets: ['latin'] })
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
         </>
 
         <main>
-          {children}
+          <CartContextProvider>
+            {children}
+          </CartContextProvider>
         </main>
 
         <>
