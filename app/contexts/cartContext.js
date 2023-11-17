@@ -19,6 +19,8 @@ function CartContextProvider({ children }) {
                 return sub(action, state)
             case "addToCart":
                 return addToCart(action, state)
+            case "clearCart":
+                return clearCart()
             default:
                 return state
         }
@@ -64,6 +66,10 @@ function CartContextProvider({ children }) {
         //     }
         //     return map
         // })
+    }
+
+    function clearCart(action, state) {
+        localStorage.clear();
     }
 
 

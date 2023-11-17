@@ -19,27 +19,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       {/* className={inter.className} */}
-      <body className={inter.className} >
+      <CartContextProvider>
+        <body className={inter.className} >
 
-        <>
-          <Header />
-        </>
+          <>
+            <Header />
+          </>
 
-        <main>
-          <CartContextProvider>
+          <main>
             {children}
-          </CartContextProvider>
-        </main>
+          </main>
 
-        <>
-          <LayoutAbout />
-        </>
+          <>
+            <LayoutAbout />
+          </>
 
-        <>
-          <Footer />
-        </>
+          <>
+            <Footer />
+          </>
 
-      </body>
+        </body>
+      </CartContextProvider>
 
     </html>
   )
