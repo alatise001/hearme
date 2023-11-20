@@ -24,11 +24,12 @@ export default function Header() {
     React.useEffect(() => {
         const handler = (event) => {
             if (
-                show &&
+                (cart || show) &&
                 ref.current &&
                 !ref.current.contains(event.target)
             ) {
                 toggleMenu()
+                toggleCart()
             }
         };
         document.addEventListener('mousedown', handler);
@@ -56,7 +57,7 @@ export default function Header() {
             </header>
 
             <div ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Category /> </div>
-            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Cart /> </div>
+            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav" : " "} d-flex`} onClick={toggleCart}> <Cart /> </div>
 
         </>
     )

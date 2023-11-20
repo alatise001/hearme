@@ -29,7 +29,7 @@ export default function Product({ params }) {
         return resp
     }
 
-    console.log(disable()[0].quantity);
+    // console.log(disable()[0].quantity);
 
     return (
         <div className='d-flex category-product-container'>
@@ -51,7 +51,7 @@ export default function Product({ params }) {
                 <div className=' add-to-cart-div'>
                     {/* <AddToCart /> */}
                     <div className=' add-to-cart-divs add-to-cart-span' >
-                        <button disabled={(disable()[0].quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
+                        <button disabled={(disable()[0]?.quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
                         <span>{data?.map(map => ((map.id === res[0].id) ? map.quantity : ""))}</span>
                         <button onClick={() => dispatch({ type: "add", id: res[0].id })}>+</button>
                     </div>

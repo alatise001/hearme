@@ -75,7 +75,9 @@ export default function Cart() {
                 <h3 className="total-amount">$ {total()}</h3>
             </div>
 
-            <button className="cart-button">CHECKOUT</button>
+            <Link href="/checkout">
+                <button className="cart-button">CHECKOUT</button>
+            </Link>
 
         </div >
         // </div >
