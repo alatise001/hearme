@@ -1,11 +1,27 @@
-import { ChatContext } from '../context/chatContext';
+'use client'
+import React from 'react';
 
-export default function Components() {
+import { CartContext } from '../contexts/cartContext';
+import Link from 'next/link';
 
-    const { dispatch } = React.useContext(ChatContext)
+
+export default function CheckoutSuccess() {
+
+    const { dispatch, data } = React.useContext(CartContext)
 
     function handleClick(params) {
         dispatch({ type: "setChat", details: params })
+    }
+
+    function total(params) {
+        const tottal = data?.map(map => (
+            map.quantity * map.price
+        ))
+
+        const cartTotal = tottal.reduce(function (acc, val) { return acc + val; }, 0)
+
+
+        return cartTotal
     }
 
     return (
@@ -22,35 +38,39 @@ export default function Components() {
 
                 <div className="confirm-info-div">
                     <div className="confirm-products-div">
-                        <div className="cart-details">
 
-                            <img className="cart-img" src="/assets/cart/image-xx59-headphones.jpg" alt="" />
+                        < div className="cart-details">
+
+                            <img className="cart-img" src={`/assets/cart/image-${data[0].slug}.jpg`} alt="" />
 
                             <div className="cart-info">
-                                <h3 className="cart-product-name">XX99MK II</h3>
-                                <h4 className="cart-product-price">$2,999</h4>
+                                <h3 className="cart-product-name">{data[0].name}</h3>
+                                <h4 className="cart-product-price">${data[0].price}</h4>
                             </div>
 
                             <div className='confirm-qty' >
-                                x1
+                                {data[0].quantity}
                             </div>
 
                         </div>
-
-                        <p className="others">and 2 other item(s)</p>
+                        {
+                            (data.length > 1) && <p className="others">and {data.length - 1} other item(s)</p>
+                        }
                     </div>
 
                     <div className="confirm-total-div">
                         <h4 className="confirm-title" style={{ color: "white" }}>GRAND TOTAL</h4>
-                        <h3 className="confirm-amount" style={{ color: "white" }}>$ 5,446</h3>
+                        <h3 className="confirm-amount" style={{ color: "white" }}>$ {total() + 50}</h3>
                     </div>
                 </div>
 
-                <button className="cart-button">
-                    BACK TO HOME
-                </button>
+                <Link href={"/"}>
+                    <button onClick={() => dispatch({ type: "clearCart" })} className="cart-button">
+                        BACK TO HOME
+                    </button>
+                </Link>
             </div>
 
-        </div>
+        </div >
     )
 }

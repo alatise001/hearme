@@ -15,7 +15,7 @@ export default function Cart() {
             map.quantity * map.price
         ))
 
-        const cartTotal = tottal.reduce(function (acc, val) { return acc + val; }, 0)
+        const cartTotal = tottal?.reduce(function (acc, val) { return acc + val; }, 0)
 
 
         return cartTotal

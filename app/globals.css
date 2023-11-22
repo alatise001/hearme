@@ -714,10 +714,13 @@ button {
 }
 
 .confirm-container {
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 60vh; */
+  position: absolute;
+  top: 0;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
