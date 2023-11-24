@@ -50,7 +50,7 @@ export default function Cart() {
 
             <div className="cart-items">
                 {
-                    data.map((map) => (
+                    data?.map((map) => (
                         <div key={map.id} className="cart-details">
                             <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />
 

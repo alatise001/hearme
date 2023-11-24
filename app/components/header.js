@@ -48,7 +48,7 @@ export default function Header() {
                     <img src="/assets/Group.svg" alt="" />
                 </div>
                 <Link href="/">
-                    <img src="/assets/audiophile 2.svg" alt="" />
+                    <img className='headerIcon' src="/assets/audiophile 2.svg" alt="" />
                 </Link>
 
                 <div onClick={show ? null : toggleCart}>
@@ -57,7 +57,7 @@ export default function Header() {
             </header>
 
             <div ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Category /> </div>
-            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav" : " "} d-flex`} onClick={toggleCart}> <Cart /> </div>
+            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav-1" : " "} d-flex`} onClick={toggleCart}> <Cart /> </div>
 
         </>
     )

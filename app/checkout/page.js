@@ -150,59 +150,64 @@ export default function Components() {
                     <h2 className="payment-sub-title">BILLING DETAILS</h2>
 
                     <div className="billing">
-                        <div className="input-div">
+                        <div className='billing-div-1'>
 
-                            <label className="label" htmlFor="name">Name</label>
-                            <input
-                                className="input"
-                                type="text"
-                                name="name"
-                                placeholder="name"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.name}
-                            />
+                            <div className="input-div">
 
-                            <p className="error" role="alert">
-                                {(touched.name || isStatus === STATUS.SUBMITTED) && errors.name}
-                            </p>
+                                <label className="label" htmlFor="name">Name</label>
+                                <input
+                                    className="input"
+                                    type="text"
+                                    name="name"
+                                    placeholder="name"
+                                    onChange={handleChg}
+                                    onBlur={handleBlur}
+                                    value={formData.name}
+                                />
 
+                                <p className="error" role="alert">
+                                    {(touched.name || isStatus === STATUS.SUBMITTED) && errors.name}
+                                </p>
+
+                            </div>
+
+                            <div className="input-div">
+
+                                <label className="label" htmlFor="email">Email Address</label>
+                                <input
+                                    className="input"
+                                    type="text"
+                                    name="email"
+                                    placeholder="email"
+                                    onChange={handleChg}
+                                    onBlur={handleBlur}
+                                    value={formData.email}
+                                />
+
+                                <p className="error" role="alert">
+                                    {(touched.email || isStatus === STATUS.SUBMITTED) && errors.email}
+                                </p>
+
+                            </div>
                         </div>
 
-                        <div className="input-div">
+                        <div className='billing-div-1'>
+                            <div className="input-div">
 
-                            <label className="label" htmlFor="email">Email Address</label>
-                            <input
-                                className="input"
-                                type="text"
-                                name="email"
-                                placeholder="email"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.email}
-                            />
-
-                            <p className="error" role="alert">
-                                {(touched.email || isStatus === STATUS.SUBMITTED) && errors.email}
-                            </p>
-
-                        </div>
-
-                        <div className="input-div">
-
-                            <label className="label" htmlFor="phone">Phone Number</label>
-                            <input
-                                className="input"
-                                type="tel"
-                                name="phone"
-                                placeholder="phone"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.phone}
-                            />
-                            <p className="error" role="alert">
-                                {(touched.phone || isStatus === STATUS.SUBMITTED) && errors.phone}
-                            </p>
+                                <label className="label" htmlFor="phone">Phone Number</label>
+                                <input
+                                    className="input"
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="phone"
+                                    onChange={handleChg}
+                                    onBlur={handleBlur}
+                                    value={formData.phone}
+                                />
+                                <p className="error" role="alert">
+                                    {(touched.phone || isStatus === STATUS.SUBMITTED) && errors.phone}
+                                </p>
+                            </div>
 
                         </div>
                     </div>
@@ -211,7 +216,7 @@ export default function Components() {
 
                     <h2 className="payment-sub-title">SHIPPING INFO</h2>
 
-                    <div className="billing">
+                    <div className="shipping">
                         <div className="input-div">
 
                             <label className="label" htmlFor="address">Your Address</label>
@@ -230,102 +235,114 @@ export default function Components() {
 
                         </div>
 
-                        <div className="input-div">
+                        <div className='shipping-div'>
 
-                            <label className="label" htmlFor="zip">Zip Code</label>
-                            <input
-                                className="input"
-                                type="text"
-                                name="zip"
-                                placeholder="zip code"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.zip}
-                            />
+                            <div className='billing-div-1'>
+                                <div className="input-div">
 
-                            <p className="error" role="alert">
-                                {(touched.zip || isStatus === STATUS.SUBMITTED) && errors.zip}
-                            </p>
+                                    <label className="label" htmlFor="zip">Zip Code</label>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        name="zip"
+                                        placeholder="zip code"
+                                        onChange={handleChg}
+                                        onBlur={handleBlur}
+                                        value={formData.zip}
+                                    />
 
-                        </div>
+                                    <p className="error" role="alert">
+                                        {(touched.zip || isStatus === STATUS.SUBMITTED) && errors.zip}
+                                    </p>
 
-                        <div className="input-div">
+                                </div>
 
-                            <label className="label" htmlFor="city">City</label>
-                            <input
-                                className="input"
-                                type="text"
-                                name="city"
-                                placeholder="city"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.city}
-                            />
+                                <div className="input-div">
 
-                            <p className="error" role="alert">
-                                {(touched.city || isStatus === STATUS.SUBMITTED) && errors.city}
-                            </p>
+                                    <label className="label" htmlFor="city">City</label>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        name="city"
+                                        placeholder="city"
+                                        onChange={handleChg}
+                                        onBlur={handleBlur}
+                                        value={formData.city}
+                                    />
 
-                        </div>
+                                    <p className="error" role="alert">
+                                        {(touched.city || isStatus === STATUS.SUBMITTED) && errors.city}
+                                    </p>
 
-                        <div className="input-div">
+                                </div>
+                            </div>
 
-                            <label className="label" htmlFor="country">Country</label>
-                            <input
-                                className="input"
-                                type="text"
-                                name="country"
-                                placeholder="country"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.country}
-                            />
+                            <div className='billing-div-1'>
 
-                            <p className="error" role="alert">
-                                {(touched.country || isStatus === STATUS.SUBMITTED) && errors.country}
-                            </p>
+                                <div className="input-div">
 
+                                    <label className="label" htmlFor="country">Country</label>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        name="country"
+                                        placeholder="country"
+                                        onChange={handleChg}
+                                        onBlur={handleBlur}
+                                        value={formData.country}
+                                    />
+
+                                    <p className="error" role="alert">
+                                        {(touched.country || isStatus === STATUS.SUBMITTED) && errors.country}
+                                    </p>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <h2 className="payment-sub-title">PAYMENT DETAILS</h2>
 
-                    <div className="billing">
-                        <fieldset>
-                            <div className="label">Payment Method</div>
+                    <div className="payment">
+                        <fieldset className='payment-field'>
+                            <div className="label billing-div-1">Payment Method</div>
 
-                            <div className="radio-div">
-
-                                <input
-                                    id='e-pin'
-                                    className="radio-input"
-                                    type="radio"
-                                    name="paymentmethod"
-                                    onChange={handleChg}
-                                    onBlur={handleBlur}
-                                    checked={formData.paymentmethod === "e-moneypin"}
-                                    value={"e-moneypin"}
-                                />
-                                <label className="label" htmlFor="e-pin">e-Money Pin</label>
+                            <div className='billing-div-1'>
 
 
+                                <div className="radio-div">
 
-                            </div>
+                                    <input
+                                        id='e-pin'
+                                        className="radio-input"
+                                        type="radio"
+                                        name="paymentmethod"
+                                        onChange={handleChg}
+                                        onBlur={handleBlur}
+                                        checked={formData.paymentmethod === "e-moneypin"}
+                                        value={"e-moneypin"}
+                                    />
+                                    <label className="label" htmlFor="e-pin">e-Money Pin</label>
 
-                            <div className="radio-div">
 
-                                <input
-                                    id='cash'
-                                    className="radio-input"
-                                    type="radio"
-                                    name="paymentmethod"
-                                    onChange={handleChg}
-                                    onBlur={handleBlur}
-                                    checked={formData.paymentmethod === "cashondelivery"}
-                                    value={"cashondelivery"}
-                                />
-                                <label className="label" htmlFor="cash">Cash on Delivery</label>
 
+                                </div>
+
+                                <div className="radio-div">
+
+                                    <input
+                                        id='cash'
+                                        className="radio-input"
+                                        type="radio"
+                                        name="paymentmethod"
+                                        onChange={handleChg}
+                                        onBlur={handleBlur}
+                                        checked={formData.paymentmethod === "cashondelivery"}
+                                        value={"cashondelivery"}
+                                    />
+                                    <label className="label" htmlFor="cash">Cash on Delivery</label>
+
+                                </div>
                             </div>
 
                             <p className="error" role="alert">
@@ -333,45 +350,47 @@ export default function Components() {
                             </p>
                         </fieldset>
 
+                        <div className='payment-field'>
 
-                        <div className="input-div">
+                            <div className="input-div billing-div-1">
 
-                            <label className="label" htmlFor="e-number">e-Money Number</label>
-                            <input
-                                disabled={((formData.paymentmethod === "cashondelivery") || (formData.paymentmethod === '')) ? true : false}
-                                className="input"
-                                type="number"
-                                name="emoneynumber"
-                                placeholder="e-Money Number"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.emoneynumber}
-                            />
-                            <p className="error" role="alert">
-                                {(touched.emoneynumber || isStatus === STATUS.SUBMITTED) && errors.emoneynumber}
-                            </p>
+                                <label className="label" htmlFor="e-number">e-Money Number</label>
+                                <input
+                                    disabled={((formData.paymentmethod === "cashondelivery") || (formData.paymentmethod === '')) ? true : false}
+                                    className="input"
+                                    type="number"
+                                    name="emoneynumber"
+                                    placeholder="e-Money Number"
+                                    onChange={handleChg}
+                                    onBlur={handleBlur}
+                                    value={formData.emoneynumber}
+                                />
+                                <p className="error" role="alert">
+                                    {(touched.emoneynumber || isStatus === STATUS.SUBMITTED) && errors.emoneynumber}
+                                </p>
 
 
-                        </div>
+                            </div>
 
-                        <div className="input-div">
+                            <div className="input-div billing-div-1">
 
-                            <label className="label" htmlFor="e-money">e-Money Pin</label>
-                            <input
-                                disabled={((formData.paymentmethod === "cashondelivery") || (formData.paymentmethod === '')) ? true : false}
-                                className="input"
-                                type="number"
-                                name="emoneypin"
-                                placeholder="e-Money Pin"
-                                onChange={handleChg}
-                                onBlur={handleBlur}
-                                value={formData.emoneypin}
-                            />
+                                <label className="label" htmlFor="e-money">e-Money Pin</label>
+                                <input
+                                    disabled={((formData.paymentmethod === "cashondelivery") || (formData.paymentmethod === '')) ? true : false}
+                                    className="input"
+                                    type="number"
+                                    name="emoneypin"
+                                    placeholder="e-Money Pin"
+                                    onChange={handleChg}
+                                    onBlur={handleBlur}
+                                    value={formData.emoneypin}
+                                />
 
-                            <p className="error" role="alert">
-                                {(touched.emoneypin || isStatus === STATUS.SUBMITTED) && errors.emoneypin}
-                            </p>
+                                <p className="error" role="alert">
+                                    {(touched.emoneypin || isStatus === STATUS.SUBMITTED) && errors.emoneypin}
+                                </p>
 
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -384,12 +403,14 @@ export default function Components() {
                     <div className="cart-items">
                         {
                             data.map((map) => (
-                                <div key={map.id} className="cart-details">
-                                    <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />
+                                <div key={map.id} className="cart-details-checkout">
+                                    <div className='cart-details-checkout-div'>
+                                        <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />
 
-                                    <div className="cart-info">
-                                        <h3 className="cart-product-name">{map.name}</h3>
-                                        <h4 className="cart-product-price">${map.price}</h4>
+                                        <div className="cart-info">
+                                            <h3 className="cart-product-name">{map.name}</h3>
+                                            <h4 className="cart-product-price">${map.price}</h4>
+                                        </div>
                                     </div>
 
                                     <p className="summary-qty">x{map.quantity}</p>

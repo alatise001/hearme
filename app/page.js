@@ -5,7 +5,7 @@ import Category from "./components/category"
 export default function Page() {
 
   return (
-    <div >
+    <div className="main-container" >
 
       <div className='hero d-flex'>
         <div className='heroinnerdiv d-flex'>
@@ -39,7 +39,14 @@ export default function Page() {
       </div>
 
       <div className="homepage-speaker-detail-1 d-flex">
-        <img className="homepage-speaker-image-1" src="./assets/home/mobile/image-speaker-zx9.png" alt="" />
+
+        <picture >
+          <source media="(min-width: 992px)" srcset="./assets/home/desktop/image-speaker-zx9.png" />
+          <source media="(min-width: 768px)" srcset="./assets/home/tablet/image-speaker-zx9.png" />
+          <img className="homepage-speaker-image-1" src="./assets/home/desktop/image-speaker-zx9.png" alt="" />
+        </picture>
+
+        {/* <img className="homepage-speaker-image-1" src="./assets/home/mobile/image-speaker-zx9.png" alt="" /> */}
 
         <span className="title homepage-speaker-header-1">
           <h1>ZX9</h1>
@@ -75,7 +82,15 @@ export default function Page() {
       </div>
 
       <div className="homepage-speaker-detail-3 d-flex">
-        <img className="homepage-speaker-image-3" src="./assets/home/mobile/image-earphones-yx1.jpg" alt="" />
+
+        <picture >
+          <source className="homepage-speaker-image-3" media="(min-width: 992px)" srcset="./assets/home/desktop/image-earphones-yx1.jpg" />
+          <source className="homepage-speaker-image-3" media="(min-width: 768px)" srcset="./assets/home/tablet/image-earphones-yx1.jpg" />
+          <img className="homepage-speaker-image-3" src="./assets/home/desktop/image-earphones-yx1.jpg" alt="" />
+        </picture>
+
+        {/* <img className="homepage-speaker-image-3" src="./assets/home/mobile/image-earphones-yx1.jpg" alt="" /> */}
+
         <div className="homepage-speaker-div-3 d-flex">
           <h1 className="homepage-speaker-header-2">
             YX1 EARPHONES

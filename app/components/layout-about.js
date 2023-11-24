@@ -3,7 +3,7 @@ import React from 'react'
 function LayoutAbout() {
     return (
         <div className="layout-about d-flex">
-            <img className="layout-about-img" src="/assets/shared/mobile/image-best-gear.jpg" alt="" />
+            <img className="layout-about-img" src="./assets/shared/desktop/image-best-gear.jpg" alt="" />
 
             <span className="title layout-about-title">
                 <h1>BRINGING YOU THE</h1>

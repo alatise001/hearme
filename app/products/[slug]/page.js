@@ -33,30 +33,35 @@ export default function Product({ params }) {
 
     return (
         <div className='d-flex category-product-container'>
-            <div style={{ width: "100%" }} className='category-product-image-bg d-flex'>
-                <img className='category-product-image' src={res[0].categoryImage.mobile} alt="" />
-            </div>
 
             <div className="product-info-div" >
-                {res[0].newProduct ? (<h4 className='new-tag' style={{ color: "#D87D4A", textAlign: "start" }}>new product</h4>) : ""}
-
-
-                <h1 className='title' style={{ textAlign: "start" }}>{res[0].name}</h1>
-                <p style={{ textAlign: "start", maxWidth: "95%" }} className='pgh category-product-pgh'>
-                    {res[0].description}
-                </p>
-
-                <h3 style={{ textAlign: "start" }}>$ {res[0].price}</h3>
-
-                <div className=' add-to-cart-div'>
-                    {/* <AddToCart /> */}
-                    <div className=' add-to-cart-divs add-to-cart-span' >
-                        <button disabled={(disable()[0]?.quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
-                        <span>{data?.map(map => ((map.id === res[0].id) ? map.quantity : ""))}</span>
-                        <button onClick={() => dispatch({ type: "add", id: res[0].id })}>+</button>
+                <div className='product-img-title-div'>
+                    <div className='category-product-image-bg d-flex'>
+                        <img className='category-product-image' src={res[0].categoryImage.tablet} alt="" />
                     </div>
 
-                    <button className='product-btn header-btn add-to-cart-divs' onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>add to cart</button>
+                    <div className='product-cart-info-div'>
+                        {res[0].newProduct ? (<h4 className='new-tag' style={{ color: "#D87D4A", textAlign: "start" }}>new product</h4>) : ""}
+
+
+                        <h1 className='title' style={{ textAlign: "start" }}>{res[0].name}</h1>
+                        <p style={{ textAlign: "start", maxWidth: "95%" }} className='pgh category-product-pgh'>
+                            {res[0].description}
+                        </p>
+
+                        <h3 style={{ textAlign: "start" }}>$ {res[0].price}</h3>
+
+                        <div className=' add-to-cart-div'>
+                            {/* <AddToCart /> */}
+                            <div className=' add-to-cart-divs add-to-cart-span' >
+                                <button disabled={(disable()[0]?.quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
+                                <span>{data?.map(map => ((map.id === res[0].id) ? map.quantity : ""))}</span>
+                                <button onClick={() => dispatch({ type: "add", id: res[0].id })}>+</button>
+                            </div>
+
+                            <button className='product-btn header-btn add-to-cart-divs' onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>add to cart</button>
+                        </div>
+                    </div>
                 </div>
 
                 <h2 style={{ textAlign: "start" }} className='sub-title'>features</h2>
@@ -68,11 +73,11 @@ export default function Product({ params }) {
 
                 <div className="product-info-div-box">
 
-                    <h2 style={{ textAlign: "start" }} className='sub-title'>
+                    <h2 style={{ textAlign: "start" }} className='sub-title sub-title-product'>
                         in the box
                     </h2>
 
-                    <div>
+                    <div className='inthebox' >
 
                         {res[0].includes.map((map, index) => (
 
@@ -96,22 +101,27 @@ export default function Product({ params }) {
                     you may also like
                 </h2>
 
-                {res[0].others.map((map, index) => (
-                    <div key={index} className='other-product-inner-div'>
-                        <div className='d-flex other-product-img-bg'>
-                            <img className='other-product-img' src={map.image.mobile} alt="" />
+
+                <div className='other-product-container'>
+
+
+                    {res[0].others.map((map, index) => (
+                        <div key={index} className='other-product-inner-div'>
+                            <div className='d-flex other-product-img-bg'>
+                                <img className='other-product-img' src={map.image.tablet} alt="" />
+                            </div>
+
+                            <h2 className='sub-title'>{map.name}</h2>
+
+
+                            <Link href={`/products/${map.slug}`} >
+                                <button style={{ alignSelf: "center" }} className='product-btn header-btn'>
+                                    see product
+                                </button>
+                            </Link>
                         </div>
-
-                        <h2 className='sub-title'>{map.name}</h2>
-
-
-                        <Link href={`/products/${map.slug}`} >
-                            <button style={{ alignSelf: "center" }} className='product-btn header-btn'>
-                                see product
-                            </button>
-                        </Link>
-                    </div>
-                ))}
+                    ))}
+                </div>
 
 
             </div >
