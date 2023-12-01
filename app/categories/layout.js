@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import Category from '../components/category'
+import LayoutAbout from '../components/layout-about'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,16 +11,23 @@ export const metadata = {
 
 export default function CatergoriesLayout({ children }) {
     return (
-        <section>
-            {/* <div className={inter.className}> */}
-            <div>
-                {children}
-            </div>
+        <>
+            <section>
+                {/* <div className={inter.className}> */}
+                <div>
+                    {children}
+                </div>
 
-            <div className='header-category-margin'>
-                <Category />
-            </div>
-            {/* </div> */}
-        </section>
+                <div className='header-category-margin'>
+                    <Category />
+                </div>
+
+                {/* </div> */}
+            </section>
+
+            <>
+                <LayoutAbout />
+            </>
+        </>
     )
 }

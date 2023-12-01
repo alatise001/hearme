@@ -42,7 +42,7 @@ export default function Components() {
             map.quantity * map.price
         ))
 
-        const cartTotal = tottal.reduce(function (acc, val) { return acc + val; }, 0)
+        const cartTotal = tottal?.reduce(function (acc, val) { return acc + val; }, 0)
 
 
         return cartTotal
@@ -402,7 +402,7 @@ export default function Components() {
 
                     <div className="cart-items">
                         {
-                            data.map((map) => (
+                            data?.map((map) => (
                                 <div key={map.id} className="cart-details-checkout">
                                     <div className='cart-details-checkout-div'>
                                         <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />

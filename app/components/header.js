@@ -44,12 +44,33 @@ export default function Header() {
         <>
             <header className='header d-flex'>
                 {/* <img src="/assets/Group.svg" alt="" /> */}
-                <div onClick={cart ? null : toggleMenu} >
+                <div className='option-hamburger' onClick={cart ? null : toggleMenu} >
                     <img src="/assets/Group.svg" alt="" />
                 </div>
+
+
                 <Link href="/">
                     <img className='headerIcon' src="/assets/audiophile 2.svg" alt="" />
                 </Link>
+
+                <div className='footer-links-div option-hamburger-desktop'>
+
+                    <Link href={"/"}>
+                        <h3 className='footerlinks'>HOME</h3>
+                    </Link>
+
+                    <Link href={`/categories/${"headphones"}`}>
+                        <h3 className='footerlinks'>HEADPHONES</h3>
+                    </Link>
+
+                    <Link href={`/categories/${"speakers"}`}>
+                        <h3 className='footerlinks'>SPEAKERS</h3>
+                    </Link>
+
+                    <Link href={`/categories/${"earphones"}`}>
+                        <h3 className='footerlinks'>EARPHONES</h3>
+                    </Link>
+                </div>
 
                 <div onClick={show ? null : toggleCart}>
                     <img src="/assets/cart Icon.svg" alt="" />

@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Category from '../components/category'
 import BackBtn from '../components/backBtn'
+import LayoutAbout from '../components/layout-about'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -12,17 +13,25 @@ export const metadata = {
 
 export default function ProductsLayout({ children }) {
     return (
-        <section>
-            <BackBtn />
-            {/* <div className={inter.className}> */}
-            <div>
-                {children}
-            </div>
+        <>
+            <section>
+                <BackBtn />
+                {/* <div className={inter.className}> */}
+                <div>
+                    {children}
+                </div>
 
-            <div className='header-category-margin'>
-                <Category />
-            </div>
-            {/* </div> */}
-        </section>
+                <div className='header-category-margin'>
+                    <Category />
+                </div>
+                {/* </div> */}
+
+            </section>
+
+            <>
+                <LayoutAbout />
+            </>
+
+        </>
     )
 }

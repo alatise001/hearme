@@ -31,8 +31,8 @@ export default function ProductsCategories({ params }) {
 
             <div className='d-flex category-product-container' >
                 {
-                    filteredObjects.map(map => (
-                        <CategoryProduct key={map.id} slugs={params.slug} {...map} />
+                    filteredObjects.map((map, index) => (
+                        <CategoryProduct index={index + 1} key={map.id} slugs={params.slug} {...map} />
                     ))
                 }
             </div>

@@ -36,16 +36,17 @@ export default function Product({ params }) {
 
             <div className="product-info-div" >
                 <div className='product-img-title-div'>
-                    <div className='category-product-image-bg d-flex'>
-                        <img className='category-product-image' src={res[0].categoryImage.tablet} alt="" />
+                    <div className='category-product-image-bg-2 d-flex'>
+                        <img className='category-product-image-2' src={res[0].categoryImage.desktop} alt="" />
                     </div>
 
                     <div className='product-cart-info-div'>
                         {res[0].newProduct ? (<h4 className='new-tag' style={{ color: "#D87D4A", textAlign: "start" }}>new product</h4>) : ""}
 
 
-                        <h1 className='title' style={{ textAlign: "start" }}>{res[0].name}</h1>
-                        <p style={{ textAlign: "start", maxWidth: "95%" }} className='pgh category-product-pgh'>
+                        <h1 className='title category-product-title'>{res[0].name}</h1>
+                        {/* <h1 className='title category-product-title'>{res[0].category}</h1> */}
+                        <p className='pgh category-product-pgh-header'>
                             {res[0].description}
                         </p>
 
@@ -64,35 +65,40 @@ export default function Product({ params }) {
                     </div>
                 </div>
 
-                <h2 style={{ textAlign: "start" }} className='sub-title'>features</h2>
+                <div className='features-include-div'>
 
-                <p style={{ textAlign: "start", maxWidth: "95%" }} className='pgh category-product-pgh'>
-                    {res[0].features}
-                </p>
+                    <div className='features-div'>
+                        <h2 style={{ textAlign: "start" }} className='sub-title'>features</h2>
 
-
-                <div className="product-info-div-box">
-
-                    <h2 style={{ textAlign: "start" }} className='sub-title sub-title-product'>
-                        in the box
-                    </h2>
-
-                    <div className='inthebox' >
-
-                        {res[0].includes.map((map, index) => (
+                        <p className='pgh category-product-pgh'>
+                            {res[0].features}
+                        </p>
+                    </div>
 
 
-                            <h4 key={index} className='qty'> <span className='qty-span'>x{map.quantity}</span>{map.item}</h4>
-                        ))}
+                    <div className="product-info-div-box">
+
+                        <h2 style={{ textAlign: "start" }} className='sub-title sub-title-product'>
+                            in the box
+                        </h2>
+
+                        <div className='inthebox' >
+
+                            {res[0].includes.map((map, index) => (
+
+
+                                <h4 key={index} className='qty'> <span className='qty-span'>x{map.quantity}</span>{map.item}</h4>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
             </div>
 
             <div className='galleryImg'>
-                <img className='galleryImg-1' src={res[0].gallery.first.mobile} alt="" />
-                <img className='galleryImg-1' src={res[0].gallery.second.mobile} alt="" />
-                <img className='galleryImg-2' src={res[0].gallery.third.mobile} alt="" />
+                <img className='galleryImg-1' src={res[0].gallery.first.desktop} alt="" />
+                <img className='galleryImg-1' src={res[0].gallery.second.desktop} alt="" />
+                <img className='galleryImg-2' src={res[0].gallery.third.desktop} alt="" />
             </div>
 
             <div className='other-product-div'>
@@ -108,7 +114,7 @@ export default function Product({ params }) {
                     {res[0].others.map((map, index) => (
                         <div key={index} className='other-product-inner-div'>
                             <div className='d-flex other-product-img-bg'>
-                                <img className='other-product-img' src={map.image.tablet} alt="" />
+                                <img className='other-product-img' src={map.image.desktop} alt="" />
                             </div>
 
                             <h2 className='sub-title'>{map.name}</h2>
