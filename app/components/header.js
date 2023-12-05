@@ -15,9 +15,7 @@ export default function Header() {
 
     function toggle(params) {
         if (show === true) {
-
         }
-
     }
 
     const ref = React.useRef();
@@ -77,8 +75,12 @@ export default function Header() {
                 </div>
             </header>
 
-            <div ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}> <Category /> </div>
-            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav-1" : " "} d-flex`} onClick={toggleCart}> <Cart /> </div>
+            <div ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}>
+                <Category />
+            </div>
+            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav-1" : " "} d-flex`} onClick={toggleCart}>
+                <Cart />
+            </div>
 
         </>
     )

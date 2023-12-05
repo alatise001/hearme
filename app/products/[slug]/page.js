@@ -55,9 +55,9 @@ export default function Product({ params }) {
                         <div className=' add-to-cart-div'>
                             {/* <AddToCart /> */}
                             <div className=' add-to-cart-divs add-to-cart-span' >
-                                <button disabled={(disable()[0]?.quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
+                                <button className='arthBtn' disabled={(disable()[0]?.quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
                                 <span>{data?.map(map => ((map.id === res[0].id) ? map.quantity : ""))}</span>
-                                <button onClick={() => dispatch({ type: "add", id: res[0].id })}>+</button>
+                                <button className='arthBtn' onClick={() => dispatch({ type: "add", id: res[0].id })}>+</button>
                             </div>
 
                             <button className='product-btn header-btn add-to-cart-divs' onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>add to cart</button>

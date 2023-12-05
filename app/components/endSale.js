@@ -24,7 +24,20 @@ export default function CheckoutSuccess() {
         return cartTotal
     }
 
+    if (data?.length === 0) {
+        return (
+            <div className='homepage-speaker-header-2' style={{ textAlign: "center", height: "100vh" }}>
+                <img src="/assets/cart.svg" alt="" />
 
+                <p>Your cart is Empty</p>
+                {/* 
+                <Link href={'/'}>
+                    <button className='header-btn product-btn'>Start Shopping</button>
+                </Link> */}
+            </div>
+        )
+
+    }
 
     return (
         <div className="confirm-container">
@@ -43,7 +56,7 @@ export default function CheckoutSuccess() {
 
                         < div className="cart-details">
 
-                            <img className="cart-img" src={`/assets/cart/image-${data[0]?.slug}.jpg`} alt="" />
+                            <img className="cart-img" src={`/assets/cart/image-${data[0].slug}.jpg`} alt="" />
 
                             <div className="cart-info">
                                 <h3 className="cart-product-name">{data[0].name}</h3>

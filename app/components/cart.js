@@ -60,9 +60,9 @@ export default function Cart() {
                             </div>
 
                             <div className=' add-to-cart-divs cart-span' >
-                                <button disabled={map.quantity <= 1 ? true : false} onClick={() => dispatch({ type: "sub", id: map.id })} className="opacity">−</button>
+                                <button disabled={map.quantity <= 1 ? true : false} onClick={() => dispatch({ type: "sub", id: map.id })} className="opacity arthBtn">−</button>
                                 <span>{map.quantity}</span>
-                                <button onClick={() => dispatch({ type: "add", id: map.id })} className="opacity">+</button>
+                                <button onClick={() => dispatch({ type: "add", id: map.id })} className="opacity arthBtn ">+</button>
                             </div>
 
                         </div>

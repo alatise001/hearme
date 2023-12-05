@@ -99,7 +99,6 @@ button {
   height: max-content;
   padding: 2rem 0;
   position: relative;
-
 }
 
 .main-container {
@@ -114,8 +113,10 @@ button {
   background: #FFF;
   width: 0;
   overflow: hidden;
-  z-index: 9;
+  z-index: 1;
+  /* top: 20rem; */
   font-size: 18px;
+  height: 100vh;
   /* box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%); */
   transition: transform ease-in-out 0.2s;
 }
@@ -127,13 +128,13 @@ button {
 
 .toggleCart {
   right: 0;
-  transform: translateX(100px);
+  transform: translateX(0px);
 }
 
 .showNav {
   width: 100%;
   transform: translateX(0px);
-  height: 89vh;
+  /* height: 100vh; */
 }
 
 .showNav-1 {
@@ -141,8 +142,6 @@ button {
   transform: translateX(0px);
   height: 89vh;
 }
-
-
 
 .footer {
   text-align: center;
@@ -171,12 +170,15 @@ button {
   text-transform: uppercase;
 }
 
+.footerlinks:hover {
+  color: #D87D4A;
+}
+
 .footer-pgh {
   color: #FFF;
   line-height: 1.5625rem;
   opacity: 0.5;
 }
-
 
 .hero {
   height: 90vh;
@@ -243,6 +245,10 @@ button {
   border: none;
 }
 
+.header-btn:hover {
+  background: #FBAF85;
+}
+
 .header-categories {
   /* check */
   height: max-content;
@@ -306,6 +312,9 @@ button {
   opacity: 0.5;
 }
 
+.cate-subtitle:hover {
+  color: #D87D4A;
+}
 
 .homepage-speaker-detail-1 {
   border-radius: 0.5rem;
@@ -347,6 +356,11 @@ button {
   color: #FFF;
 }
 
+.homepage-speaker-btn-1:hover {
+  background: #4C4C4C;
+  color: #FFF;
+}
+
 .homepage-speaker-detail-2 {
   border-radius: 1.4rem;
   background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
@@ -375,6 +389,12 @@ button {
 .homepage-speaker-btn-2 {
   border: .11rem solid black;
   background-color: transparent;
+}
+
+.homepage-speaker-btn-2:hover {
+  color: #FFF;
+  border: .11rem solid black;
+  background-color: black;
 }
 
 .homepage-speaker-detail-3 {
@@ -441,6 +461,7 @@ button {
 
 .category-product {
   /* outline: auto; */
+  gap: 1rem;
   justify-content: space-between;
   height: 80vh;
 }
@@ -483,9 +504,10 @@ button {
   gap: 2rem;
 }
 
+
 .category-product-pgh {
   /* max-width: 70%; */
-  text-align: left;
+  text-align: center;
 }
 
 .category-product-pgh-header {
@@ -541,6 +563,10 @@ button {
   background-color: white;
 }
 
+.back-btn:hover {
+  color: #D87D4A;
+}
+
 .product-info-div {
   display: flex;
   flex-direction: column;
@@ -570,6 +596,15 @@ button {
   align-items: center;
   justify-content: space-evenly;
 
+}
+
+.arthBtn {
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.arthBtn:hover {
+  color: #D87D4A;
 }
 
 .qty {
@@ -828,6 +863,10 @@ button {
   text-transform: uppercase;
 }
 
+.cart-button:hover {
+  background-color: #FBAF85;
+}
+
 .confirm-container {
   z-index: 1;
   display: flex;
@@ -835,7 +874,7 @@ button {
   align-items: center;
   position: absolute;
   top: 0;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -1085,6 +1124,7 @@ fieldset {
   /* margin-top: 3rem; */
   margin: 0 auto;
   max-width: 80%;
+  margin-bottom: 2rem;
 }
 
 .summary-qty {
@@ -1147,6 +1187,41 @@ fieldset {
   gap: 1rem;
 }
 
+.onDelivery {
+  display: flex;
+  gap: 1rem;
+
+  color: #000;
+  /* font-family: Manrope; */
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5625rem;
+  /* 166.667% */
+}
+
+/* button check */
+
+/* .btn-roll {
+  font-family: 'Karla', sans-serif;
+  border: none;
+  padding: .3rem 1rem;
+  font-size: 1.8rem;
+  background: #5035FF;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.5);
+  border-radius: 3.81277px;
+  cursor: pointer;
+}
+
+.btn-roll:focus {
+  outline: none;
+}
+
+
+.btn-roll:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+} */
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -1205,8 +1280,19 @@ fieldset {
     /* height: 40vh; */
   }
 
+  /* .layout-about-img {
+    height: 26.75rem;
+  } */
+
+  .layout-about {
+    flex-direction: row;
+    /* gap: 1rem; */
+  }
+
   .layout-about-img {
-    height: 18.75rem;
+    width: 60%;
+    height: 36.75rem;
+    order: 2;
   }
 
   .homepage-speaker-div-3 {
@@ -1218,7 +1304,7 @@ fieldset {
   }
 
   .layout-about-pgh {
-    max-width: 85%;
+    max-width: 100%;
   }
 
   .category-product-pgh {
@@ -1804,4 +1890,16 @@ fieldset {
     width: 30%;
     height: max-content;
   }
+
+  /* .onDelivery {
+    display: flex;
+    gap: 1rem;
+
+    color: #000;
+    font-family: Manrope;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5625rem;
+  } */
 }

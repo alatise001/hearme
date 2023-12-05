@@ -3,6 +3,7 @@
 import React from 'react';
 import CheckoutSuccess from '../components/endSale';
 import { CartContext } from '../contexts/cartContext';
+// import OnDelivery from "./onDelivery.svg"
 
 export default function Components() {
 
@@ -131,6 +132,21 @@ export default function Components() {
     }
 
     if (loginError) throw loginError
+
+    if (data?.length === 0) {
+        return (
+            <div className='homepage-speaker-header-2' style={{ textAlign: "center", height: "100vh" }}>
+                <img src="/assets/cart.svg" alt="" />
+
+                <p>Your cart is Empty</p>
+                {/* 
+                <Link href={'/'}>
+                    <button className='header-btn product-btn'>Start Shopping</button>
+                </Link> */}
+            </div>
+        )
+
+    }
 
     if (isStatus === "SUBMITTING") return (<div className="container">...LOADING</div>)
 
@@ -392,6 +408,19 @@ export default function Components() {
 
                             </div>
                         </div>
+
+                        {
+                            formData.paymentmethod === "cashondelivery" &&
+                            <div className='onDelivery'>
+                                <img src="./assets/onDelivery.svg" alt="" />
+
+                                <p>
+                                    The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives
+                                    at your residence. Just make sure your address is correct so that your order will not be cancelled.
+                                </p>
+
+                            </div>
+                        }
                     </div>
                 </form>
 
@@ -422,7 +451,8 @@ export default function Components() {
                         }
                     </div>
 
-                    <div className="total-amt-div">
+                    <div class
+                        Name="total-amt-div">
                         <div className="total-amt-sub-div">
                             <div className="cart-total">
                                 <h4 className="total-title">TOTAL</h4>
