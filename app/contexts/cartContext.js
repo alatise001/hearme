@@ -75,9 +75,11 @@ function CartContextProvider({ children }) {
 
 
     // const [cart, dispatch] = useReducer(cartFunction, [])
-    const localState = JSON.parse(localStorage.getItem("cart"));
+    // const localState = JSON.parse(localStorage.getItem("cart"));
+    const localState = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("cart")) : null
 
     const [cart, dispatch] = useReducer(cartFunction, localState || [])
+
 
     React.useEffect(() => {
         // dispatch({

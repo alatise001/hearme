@@ -1200,6 +1200,15 @@ fieldset {
   /* 166.667% */
 }
 
+.error-div {
+  display: flex;
+  color: black;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 /* button check */
 
 /* .btn-roll {
