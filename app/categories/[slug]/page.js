@@ -1,5 +1,6 @@
 'use client'
 // import axios from 'axios'
+import Image from 'next/image';
 import CategoryProduct from '@/app/components/category-product';
 import useProductsDataManager from '@/hooks/useProductsDataManager';
 
@@ -19,9 +20,27 @@ export default function ProductsCategories({ params }) {
     const { isLoading, productLists, iserror, dispatch } = useProductsDataManager()
     // console.log(productLists, 'ran');
 
+    console.log(params.slug);
+
     const filteredObjects = productLists.filter(obj => obj.category === params.slug);
 
 
+    if (isLoading) {
+        return (
+
+
+            <div className="loading-div">
+
+                <Image
+                    src="/assets/loading.gif"
+                    width="200"
+                    height="200"
+                    alt="loading"
+
+                />
+            </div>
+        )
+    }
     // const { id, name, image, category, categoryImage, price, description, } = categoryInfo
     return (
         <>

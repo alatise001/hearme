@@ -2,6 +2,7 @@
 import React from 'react';
 import useProductsDataManager from '@/hooks/useProductsDataManager';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CartContext } from '@/app/contexts/cartContext';
 // import AddToCart from '@/app/components/addToCart';
 
@@ -10,21 +11,35 @@ import { CartContext } from '@/app/contexts/cartContext';
 export default function Product({ params }) {
 
     const { data, dispatch } = React.useContext(CartContext)
-    console.log(data);
+    // console.log(data);
 
-    const { isLoading, productLists, iserror, } = useProductsDataManager()
+    const { isLoading, productLists, iserror } = useProductsDataManager()
 
     const res = productLists.filter(obj => obj.slug === params.slug);
-    console.log(res);
-    console.log(isLoading);
+    // console.log(params.slug);
+    // console.log(res);
+    // console.log(isLoading);
 
     if (isLoading) {
-        return "...LOADING"
+        return (
+
+
+            <div className="loading-div">
+
+                <Image
+                    src="/assets/loading.gif"
+                    width="200"
+                    height="200"
+                    alt="loading"
+
+                />
+            </div>
+        )
     }
 
     function disable(id) {
         const resp = data.filter(obj => obj.id === res[0].id);
-        console.log(res);
+        // console.log(res);
 
         return resp
     }
