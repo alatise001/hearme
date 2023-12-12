@@ -44,6 +44,7 @@ a {
 button {
   border: none;
   font-family: inherit;
+  cursor: pointer;
 }
 
 .d-flex {
@@ -1328,7 +1329,7 @@ fieldset {
   }
 
   .category-product-pgh {
-    text-align: left;
+    text-align: center;
     max-width: 95%;
   }
 
@@ -1386,7 +1387,7 @@ fieldset {
   .category-product {
     /* outline: auto; */
     justify-content: space-between;
-    height: 70vh;
+    height: 70.8vh;
   }
 
   .header-category-margin {
@@ -1413,7 +1414,7 @@ fieldset {
   }
 
   .other-product-img {
-    width: 11.94525rem;
+    width: 13.94525rem;
     height: 15.75rem;
   }
 
@@ -1430,7 +1431,6 @@ fieldset {
     text-align: left;
     /* max-width: 65%; */
   }
-
 
   .category-product-image-bg {
     /* width: 17.5625rem; */
@@ -1462,6 +1462,10 @@ fieldset {
     /* height: 12.5625rem; */
     /* width: 12.63775rem;s */
     /* height: 15.1875rem; */
+  }
+
+  .features-pgh {
+    text-align: start;
   }
 
 

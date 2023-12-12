@@ -4,6 +4,50 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Category from './category';
 import Cart from './cart';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+    open: (height = 1000) => ({
+        clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+        transition: {
+            type: "spring",
+            stiffness: 20,
+            restDelta: 2
+        }
+    }),
+
+    closed: {
+        clipPath: "circle(30px at 40px 40px)",
+        transition: {
+            delay: 0.5,
+            type: "spring",
+            stiffness: 400,
+            damping: 40
+        }
+    },
+}
+
+// const containerVariants = {
+//     hidden: {
+//         opacity: 0,
+//         x: "-100%"
+//     },
+//     visible: {
+//         opacity: 1,
+//         x: 0,
+//         transition: {
+//             type: 'spring',
+//             stiffness: 37,
+//             mass: 1,
+//             damping: 5,
+//         },
+
+//         exit: {
+//             x: "-100vh",
+//             transition: { ease: "easeInOut" }
+//         }
+//     },
+// }
 
 export default function Header() {
 
@@ -42,7 +86,9 @@ export default function Header() {
         <>
             <header className='header d-flex'>
                 {/* <img src="/assets/Group.svg" alt="" /> */}
-                <div className='option-hamburger' onClick={cart ? null : toggleMenu} >
+                <div className='option-hamburger' onClick={cart ? null : toggleMenu}
+                    style={{ cursor: "pointer" }}
+                >
                     <img src="/assets/Group.svg" alt="" />
                 </div>
 
@@ -70,17 +116,28 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <div onClick={show ? null : toggleCart}>
+                <div onClick={show ? null : toggleCart}
+                    style={{ cursor: "pointer" }}
+                >
                     <img src="/assets/cart Icon.svg" alt="" />
                 </div>
             </header>
 
-            <div ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}>
+            <motion.div
+                variants={containerVariants}
+                initial={false}
+                animate={show ? "open" : "closed"}
+                // custom={height}
+                ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}>
                 <Category />
-            </div>
-            <div ref={ref} className={`toggle toggleCart ${cart ? "showNav-1" : " "} d-flex`} onClick={toggleCart}>
+            </motion.div>
+            <motion.div
+                variants={containerVariants}
+                initial={false}
+                animate={cart ? "open" : "closed"}
+                ref={ref} className={`toggle toggleCart ${cart ? "showNav-1" : " "} d-flex`} onClick={toggleCart}>
                 <Cart />
-            </div>
+            </motion.div>
 
         </>
     )

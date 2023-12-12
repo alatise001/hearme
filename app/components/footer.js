@@ -1,5 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+
 
 function Footer() {
     return (
@@ -12,19 +15,35 @@ function Footer() {
                     <div className='footer-links-div'>
 
                         <Link href={"/"}>
-                            <h3 className='footerlinks'>HOME</h3>
+                            <motion.h3 className='footerlinks'
+                                whileHover={{
+                                    scale: 1.1
+                                }}
+                            >HOME</motion.h3>
                         </Link>
 
                         <Link href={`/categories/${"headphones"}`}>
-                            <h3 className='footerlinks'>HEADPHONES</h3>
+                            <motion.h3
+                                whileHover={{
+                                    scale: 1.1
+                                }}
+                                className='footerlinks'>HEADPHONES</motion.h3>
                         </Link>
 
                         <Link href={`/categories/${"speakers"}`}>
-                            <h3 className='footerlinks'>SPEAKERS</h3>
+                            <motion.h3
+                                whileHover={{
+                                    scale: 1.1
+                                }}
+                                className='footerlinks'>SPEAKERS</motion.h3>
                         </Link>
 
                         <Link href={`/categories/${"earphones"}`}>
-                            <h3 className='footerlinks'>EARPHONES</h3>
+                            <motion.h3
+                                whileHover={{
+                                    scale: 1.1
+                                }}
+                                className='footerlinks'>EARPHONES</motion.h3>
                         </Link>
                     </div>
 

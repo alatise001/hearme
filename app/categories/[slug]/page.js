@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import CategoryProduct from '@/app/components/category-product';
 import useProductsDataManager from '@/hooks/useProductsDataManager';
+import { motion } from 'framer-motion'
 
 
 // async function fetchCategoryInfo(params) {
@@ -51,7 +52,23 @@ export default function ProductsCategories({ params }) {
             <div className='d-flex category-product-container' >
                 {
                     filteredObjects.map((map, index) => (
-                        <CategoryProduct index={index + 1} key={map.id} slugs={params.slug} {...map} />
+                        <motion.div key={map.id}
+
+                            initial={{
+                                opacity: 0,
+                                x: index % 2 === 0 ? 50 : -50
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                x: 0,
+                                transition: {
+                                    duration: 1
+                                }
+                            }}
+                            viewport={{ once: true }}>
+
+                            <CategoryProduct index={index + 1} key={map.id} slugs={params.slug} {...map} />
+                        </motion.div>
                     ))
                 }
             </div>

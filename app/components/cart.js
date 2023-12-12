@@ -17,7 +17,6 @@ export default function Cart() {
 
         const cartTotal = tottal?.reduce(function (acc, val) { return acc + val; }, 0)
 
-
         return cartTotal
     }
 

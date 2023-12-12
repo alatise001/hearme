@@ -1,7 +1,9 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 import Category from "./components/category"
 import LayoutAbout from "./components/layout-about";
+import { motion } from "framer-motion"
 
 export default function Page() {
 
@@ -9,7 +11,20 @@ export default function Page() {
     <>
       <div className="main-container" >
 
-        <div className='hero d-flex'>
+        <motion.div className='hero d-flex'
+          initial={{
+            opacity: 0,
+            x: 2 % 2 === 0 ? 50 : -50
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1
+            }
+          }}
+          viewport={{ once: true }}
+        >
           <div className='heroinnerdiv'>
 
             <h4 className='new-tag'>NEW PRODUCT</h4>
@@ -31,21 +46,64 @@ export default function Page() {
             </p>
 
             <Link href={`/products/${"xx99-mark-one-headphones"}`}>
-              <button className='product-btn header-btn'>SEE PRODUCTS</button>
+              <motion.button
+                className='product-btn header-btn'
+                initial={{
+                  y: 0,
+                }}
+                animate={{
+                  y: 7,
+                }}
+
+                transition={{
+                  type: 'tween',
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  duration: 1,
+                }}
+              >SEE PRODUCTS</motion.button>
             </Link>
           </div>
-        </div>
+        </motion.div>
 
-        <div >
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: 1 % 2 === 0 ? 50 : -50
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1
+            }
+          }}
+          viewport={{ once: true }}
+        >
           <Category />
-        </div>
+        </motion.div>
 
-        <div className="homepage-speaker-detail-1 d-flex">
+        <motion.div
+          className="homepage-speaker-detail-1 d-flex"
+          initial={{
+            opacity: 0,
+            x: 2 % 2 === 0 ? 50 : -50
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1
+            }
+          }}
+          viewport={{ once: true }}
+        >
 
           {/* <picture>
           <source media="(max-width: 992px)" srcset="./assets/home/desktop/image-speaker-zx9.png" />
           <source media="(max-width: 768px)" srcset="./assets/home/tablet/image-speaker-zx9.png" />
-        </picture> */}
+          </picture> */}
 
           <img className="homepage-speaker-image-1" src="./assets/home/desktop/image-speaker-zx9.png" alt="" />
 
@@ -66,28 +124,87 @@ export default function Page() {
 
 
             <Link href={`/products/${"zx9-speaker"}`}>
-              <button className="product-btn homepage-speaker-btn-1">
+              <motion.button
+                className="product-btn homepage-speaker-btn-1"
+                initial={{
+                  y: 0,
+                }}
+                animate={{
+                  y: 7,
+                }}
+
+                transition={{
+                  type: 'tween',
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  duration: 1,
+                }}
+              >
                 SEE PRODUCT
-              </button>
+              </motion.button>
             </Link>
           </div>
 
-        </div>
+        </motion.div>
 
 
-        <div className="homepage-speaker-detail-2 d-flex">
+        <motion.div
+          className="homepage-speaker-detail-2 d-flex"
+          initial={{
+            opacity: 0,
+            x: 1 % 2 === 0 ? 50 : -50
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1
+            }
+          }}
+          viewport={{ once: true }}
+        >
           <h1 className="homepage-speaker-header-2">
             ZX7 SPEAKER
           </h1>
 
           <Link href={`/products/${"zx7-speaker"}`}>
-            <button className="product-btn homepage-speaker-btn-2">
-              SEE PRODUCT
-            </button>
-          </Link>
-        </div>
+            <motion.button
+              initial={{
+                y: 0,
+              }}
+              animate={{
+                y: 7,
+              }}
 
-        <div className="homepage-speaker-detail-3 d-flex">
+              transition={{
+                type: 'tween',
+                ease: 'easeInOut',
+                repeat: Infinity,
+                repeatType: 'reverse',
+                duration: 1,
+              }}
+              className="product-btn homepage-speaker-btn-2">
+              SEE PRODUCT
+            </motion.button>
+          </Link>
+        </motion.div>
+
+        <motion.div
+          className="homepage-speaker-detail-3 d-flex"
+          initial={{
+            opacity: 0,
+            x: 2 % 2 === 0 ? 50 : -50
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1
+            }
+          }}
+          viewport={{ once: true }}
+        >
 
           <picture >
             <source className="homepage-speaker-image-3" media="(min-width: 992px)" srcset="./assets/home/desktop/image-earphones-yx1.jpg" />
@@ -102,18 +219,48 @@ export default function Page() {
               YX1 EARPHONES
             </h1>
             <Link href={`/products/${"yx1-earphones"}`}>
-              <button className="product-btn homepage-speaker-btn-2">
+              <motion.button
+                className="product-btn homepage-speaker-btn-2"
+                initial={{
+                  y: 0,
+                }}
+                animate={{
+                  y: 7,
+                }}
+
+                transition={{
+                  type: 'tween',
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  duration: 1,
+                }}
+              >
+
                 SEE PRODUCT
-              </button>
+              </motion.button>
             </Link>
           </div>
-        </div>
+        </motion.div>
 
       </div >
 
-      <>
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 1 % 2 === 0 ? 50 : -50
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1
+          }
+        }}
+        viewport={{ once: true }}
+      >
         <LayoutAbout />
-      </>
+      </motion.div>
     </>
   )
 }

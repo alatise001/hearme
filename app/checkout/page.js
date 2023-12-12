@@ -3,6 +3,8 @@
 import React from 'react';
 import CheckoutSuccess from '../components/endSale';
 import { CartContext } from '../contexts/cartContext';
+import { motion } from 'framer-motion'
+
 // import OnDelivery from "./onDelivery.svg"
 
 export default function Components() {
@@ -13,6 +15,23 @@ export default function Components() {
         SUBMITTING: "SUBMITTING",
         COMPLETED: "COMPLETED",
     };
+
+    // const motionVariants = {
+    //     out: {
+    //         opacity: 0,
+    //         y: -100
+    //     },
+
+    //     in: {
+    //         opacity: 1,
+    //         y: 0,
+    //         transition: {
+    //             duration: 1
+    //         }
+    //     },
+    //     viewport: { once: true }
+    // }
+
 
     const [formData, setFormData] = React.useState({
         email: "",
@@ -160,15 +179,61 @@ export default function Components() {
 
 
                 <form onSubmit={handleSubmit} className="form">
-                    <h1 className="payment-title">CHECKOUT</h1>
+                    <motion.h1 className="payment-title"
+                        initial={{
+                            opacity: 0,
+                            y: -100
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+
+                    >CHECKOUT</motion.h1>
                     {/* <div> */}
 
-                    <h2 className="payment-sub-title">BILLING DETAILS</h2>
+                    <motion.h2 className="payment-sub-title"
+                        initial={{
+                            opacity: 0,
+                            y: -100
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >BILLING DETAILS</motion.h2>
 
                     <div className="billing">
-                        <div className='billing-div-1'>
+                        <motion.div className='billing-div-1'
+                            animate={{ opacity: 1 }}
+                            transition={{
+                                staggerChildren: 2,
+                                delay: 1
+                            }}
+                        >
 
-                            <div className="input-div">
+                            <motion.div className="input-div"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
 
                                 <label className="label" htmlFor="name">Name</label>
                                 <input
@@ -185,9 +250,22 @@ export default function Components() {
                                     {(touched.name || isStatus === STATUS.SUBMITTED) && errors.name}
                                 </p>
 
-                            </div>
+                            </motion.div>
 
-                            <div className="input-div">
+                            <motion.div className="input-div"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
 
                                 <label className="label" htmlFor="email">Email Address</label>
                                 <input
@@ -204,11 +282,24 @@ export default function Components() {
                                     {(touched.email || isStatus === STATUS.SUBMITTED) && errors.email}
                                 </p>
 
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
                         <div className='billing-div-1'>
-                            <div className="input-div">
+                            <motion.div className="input-div"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
 
                                 <label className="label" htmlFor="phone">Phone Number</label>
                                 <input
@@ -223,17 +314,43 @@ export default function Components() {
                                 <p className="error" role="alert">
                                     {(touched.phone || isStatus === STATUS.SUBMITTED) && errors.phone}
                                 </p>
-                            </div>
+                            </motion.div>
 
                         </div>
                     </div>
 
                     {/* </div> */}
 
-                    <h2 className="payment-sub-title">SHIPPING INFO</h2>
+                    <motion.h2 className="payment-sub-title"
+                        initial={{
+                            opacity: 0,
+                            y: -100
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >SHIPPING INFO</motion.h2>
 
                     <div className="shipping">
-                        <div className="input-div">
+                        <motion.div className="input-div"
+                            initial={{
+                                opacity: 0,
+                                y: -100
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                transition: {
+                                    duration: 1
+                                }
+                            }}
+                            viewport={{ once: true }}
+                        >
 
                             <label className="label" htmlFor="address">Your Address</label>
                             <input
@@ -249,12 +366,25 @@ export default function Components() {
                                 {(touched.address || isStatus === STATUS.SUBMITTED) && errors.address}
                             </p>
 
-                        </div>
+                        </motion.div>
 
                         <div className='shipping-div'>
 
                             <div className='billing-div-1'>
-                                <div className="input-div">
+                                <motion.div className="input-div"
+                                    initial={{
+                                        opacity: 0,
+                                        y: -100
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 1
+                                        }
+                                    }}
+                                    viewport={{ once: true }}
+                                >
 
                                     <label className="label" htmlFor="zip">Zip Code</label>
                                     <input
@@ -271,9 +401,22 @@ export default function Components() {
                                         {(touched.zip || isStatus === STATUS.SUBMITTED) && errors.zip}
                                     </p>
 
-                                </div>
+                                </motion.div>
 
-                                <div className="input-div">
+                                <motion.div className="input-div"
+                                    initial={{
+                                        opacity: 0,
+                                        y: -100
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 1
+                                        }
+                                    }}
+                                    viewport={{ once: true }}
+                                >
 
                                     <label className="label" htmlFor="city">City</label>
                                     <input
@@ -290,12 +433,25 @@ export default function Components() {
                                         {(touched.city || isStatus === STATUS.SUBMITTED) && errors.city}
                                     </p>
 
-                                </div>
+                                </motion.div>
                             </div>
 
                             <div className='billing-div-1'>
 
-                                <div className="input-div">
+                                <motion.div className="input-div"
+                                    initial={{
+                                        opacity: 0,
+                                        y: -100
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 1
+                                        }
+                                    }}
+                                    viewport={{ once: true }}
+                                >
 
                                     <label className="label" htmlFor="country">Country</label>
                                     <input
@@ -312,21 +468,74 @@ export default function Components() {
                                         {(touched.country || isStatus === STATUS.SUBMITTED) && errors.country}
                                     </p>
 
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
 
-                    <h2 className="payment-sub-title">PAYMENT DETAILS</h2>
+                    <motion.h2
+                        initial={{
+                            opacity: 0,
+                            y: -100
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                        className="payment-sub-title">PAYMENT DETAILS
+                    </motion.h2>
 
                     <div className="payment">
-                        <fieldset className='payment-field'>
-                            <div className="label billing-div-1">Payment Method</div>
+                        <motion.fieldset className='payment-field'
+                            initial={{
+                                opacity: 0,
+                                y: -100
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                transition: {
+                                    duration: 1
+                                }
+                            }}
+                            viewport={{ once: true }}
+                        >
+                            <motion.div className="label billing-div-1"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >Payment Method</motion.div>
 
                             <div className='billing-div-1'>
 
 
-                                <div className="radio-div">
+                                <motion.div className="radio-div"
+                                    initial={{
+                                        opacity: 0,
+                                        y: -100
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 1
+                                        }
+                                    }}
+                                    viewport={{ once: true }}
+                                >
 
                                     <input
                                         id='e-pin'
@@ -342,9 +551,22 @@ export default function Components() {
 
 
 
-                                </div>
+                                </motion.div>
 
-                                <div className="radio-div">
+                                <motion.div className="radio-div"
+                                    initial={{
+                                        opacity: 0,
+                                        y: -100
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 1
+                                        }
+                                    }}
+                                    viewport={{ once: true }}
+                                >
 
                                     <input
                                         id='cash'
@@ -358,17 +580,30 @@ export default function Components() {
                                     />
                                     <label className="label" htmlFor="cash">Cash on Delivery</label>
 
-                                </div>
+                                </motion.div>
                             </div>
 
                             <p className="error" role="alert">
                                 {(touched.paymentmethod || isStatus === STATUS.SUBMITTED) && errors.paymentmethod}
                             </p>
-                        </fieldset>
+                        </motion.fieldset>
 
                         <div className='payment-field'>
 
-                            <div className="input-div billing-div-1">
+                            <motion.div className="input-div billing-div-1"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
 
                                 <label className="label" htmlFor="e-number">e-Money Number</label>
                                 <input
@@ -386,9 +621,22 @@ export default function Components() {
                                 </p>
 
 
-                            </div>
+                            </motion.div>
 
-                            <div className="input-div billing-div-1">
+                            <motion.div className="input-div billing-div-1"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
 
                                 <label className="label" htmlFor="e-money">e-Money Pin</label>
                                 <input
@@ -406,12 +654,25 @@ export default function Components() {
                                     {(touched.emoneypin || isStatus === STATUS.SUBMITTED) && errors.emoneypin}
                                 </p>
 
-                            </div>
+                            </motion.div>
                         </div>
 
                         {
                             formData.paymentmethod === "cashondelivery" &&
-                            <div className='onDelivery'>
+                            <motion.div className='onDelivery'
+                                initial={{
+                                    opacity: 0,
+                                    x: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    x: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
                                 <img src="./assets/onDelivery.svg" alt="" />
 
                                 <p>
@@ -419,20 +680,52 @@ export default function Components() {
                                     at your residence. Just make sure your address is correct so that your order will not be cancelled.
                                 </p>
 
-                            </div>
+                            </motion.div>
                         }
                     </div>
                 </form>
 
                 <div className="cart-summary">
-                    <div className="cart-title" >
+                    <motion.div className="cart-title"
+                        initial={{
+                            opacity: 0,
+                            y: -100
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1,
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >
                         <h2>Summary </h2>
-                    </div>
+                    </motion.div>
 
-                    <div className="cart-items">
+                    <motion.div
+                        transition={{
+                            duration: 1,
+                            delayChildren: 3,
+                            staggerChildren: 4,
+                        }}
+                        className="cart-items">
                         {
                             data?.map((map) => (
-                                <div key={map.id} className="cart-details-checkout">
+                                <motion.div key={map.id} className="cart-details-checkout"
+                                    initial={{
+                                        opacity: 0,
+                                        y: -100
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 1
+                                        }
+                                    }}
+                                    viewport={{ once: true }}
+                                >
                                     <div className='cart-details-checkout-div'>
                                         <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />
 
@@ -446,33 +739,101 @@ export default function Components() {
                                     {/* <div className=' add-to-cart-divs cart-span' >
                                     </div> */}
 
-                                </div>
+                                </motion.div>
                             ))
                         }
-                    </div>
+                    </motion.div>
 
-                    <div class
-                        Name="total-amt-div">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            y: -100
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                        className="total-amt-div">
                         <div className="total-amt-sub-div">
-                            <div className="cart-total">
+                            <motion.div className="cart-total"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
                                 <h4 className="total-title">TOTAL</h4>
                                 <h3 className="total-amount">$ {total()}</h3>
-                            </div>
+                            </motion.div>
 
-                            <div className="cart-total">
+                            <motion.div className="cart-total"
+                                initial={{
+                                    opacity: 0,
+                                    y: -100
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 1
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                            >
                                 <h4 className="total-title">SHIPPING</h4>
                                 <h3 className="total-amount">$ 50</h3>
-                            </div>
+                            </motion.div>
                         </div>
 
-                        <div className="cart-total">
+                        <motion.div className="cart-total"
+                            initial={{
+                                opacity: 0,
+                                y: -100
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                                transition: {
+                                    duration: 1
+                                }
+                            }}
+                            viewport={{ once: true }}
+                        >
                             <h4 className="total-title">GRAND TOTAL</h4>
                             <h3 className="total-amount">$ {total() + 50}</h3>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
 
-                    <button type='submit' disabled={!isValid} onClick={handleSubmit} className="cart-button">CONTINUE & PAY</button>
+                    <motion.button
+                        initial={{
+                            y: 0,
+                        }}
+                        animate={{
+                            y: 7,
+                        }}
+
+                        transition={{
+                            type: 'tween',
+                            ease: 'easeInOut',
+                            repeat: Infinity,
+                            repeatType: 'reverse',
+                            duration: 1,
+                        }}
+                        whileTap={{ scale: 0.85 }}
+                        type='submit' disabled={!isValid} onClick={handleSubmit} className="cart-button">CONTINUE & PAY
+                    </motion.button>
                 </div>
             </div>
 

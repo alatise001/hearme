@@ -1,6 +1,8 @@
 import React from 'react'
 import Category from './category'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+
 
 function CategoryProduct({ index, name, description, newProduct, categoryImage, slug }) {
     // {name, CategoryImage new description}  
@@ -25,9 +27,25 @@ function CategoryProduct({ index, name, description, newProduct, categoryImage, 
                     <p className="pgh category-product-pgh ">{description}</p>
 
                     <Link href={`/products/${slug}`}>
-                        <button className="product-btn header-btn" >
+                        <motion.button
+                            className="product-btn header-btn"
+                            initial={{
+                                y: 0,
+                            }}
+                            animate={{
+                                y: 7,
+                            }}
+
+                            transition={{
+                                type: 'tween',
+                                ease: 'easeInOut',
+                                repeat: Infinity,
+                                repeatType: 'reverse',
+                                duration: 1,
+                            }}
+                        >
                             SEE PROUCT
-                        </button>
+                        </motion.button>
                     </Link>
                 </div>
             </div>

@@ -4,6 +4,8 @@ import useProductsDataManager from '@/hooks/useProductsDataManager';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CartContext } from '@/app/contexts/cartContext';
+import { motion } from 'framer-motion'
+
 // import AddToCart from '@/app/components/addToCart';
 
 
@@ -51,11 +53,42 @@ export default function Product({ params }) {
 
             <div className="product-info-div" >
                 <div className='product-img-title-div'>
-                    <div className='category-product-image-bg-2 d-flex'>
+                    <motion.div
+                        className='category-product-image-bg-2 d-flex'
+                        initial={{
+                            opacity: 0,
+                            y: -200
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1,
+                                staggerChildren: 2,
+                                delayChildren: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >
                         <img className='category-product-image-2' src={res[0].categoryImage.desktop} alt="" />
-                    </div>
+                    </motion.div>
 
-                    <div className='product-cart-info-div'>
+                    <motion.div className='product-cart-info-div'
+                        initial={{
+                            opacity: 0,
+                            y: 200
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            transition: {
+                                duration: 1,
+                                staggerChildren: 2,
+                                delayChildren: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >
                         {res[0].newProduct ? (<h4 className='new-tag' style={{ color: "#D87D4A", textAlign: "start" }}>new product</h4>) : ""}
 
 
@@ -75,23 +108,68 @@ export default function Product({ params }) {
                                 <button className='arthBtn' onClick={() => dispatch({ type: "add", id: res[0].id })}>+</button>
                             </div>
 
-                            <button className='product-btn header-btn add-to-cart-divs' onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>add to cart</button>
+                            <motion.button className='product-btn header-btn add-to-cart-divs'
+                                initial={{
+                                    y: 0,
+                                }}
+                                animate={{
+                                    y: 7,
+                                }}
+
+                                transition={{
+                                    type: 'tween',
+                                    ease: 'easeInOut',
+                                    repeat: Infinity,
+                                    repeatType: 'reverse',
+                                    duration: 1,
+                                }}
+                                onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>
+                                add to cart
+                            </motion.button>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className='features-include-div'>
 
-                    <div className='features-div'>
+                    <motion.div className='features-div'
+                        initial={{
+                            opacity: 0,
+                            x: 2 % 2 === 0 ? 50 : -50
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                duration: 1,
+                                staggerChildren: 2,
+                                delayChildren: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >
                         <h2 style={{ textAlign: "start" }} className='sub-title'>features</h2>
 
-                        <p className='pgh category-product-pgh'>
+                        <p className='pgh category-product-pgh features-pgh'>
                             {res[0].features}
                         </p>
-                    </div>
+                    </motion.div>
 
 
-                    <div className="product-info-div-box">
+                    <motion.div className="product-info-div-box"
+                        initial={{
+                            opacity: 0,
+                            x: 1 % 2 === 0 ? 50 : -50
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                duration: 1
+                            }
+                        }}
+                        viewport={{ once: true }}
+                    >
 
                         <h2 style={{ textAlign: "start" }} className='sub-title sub-title-product'>
                             in the box
@@ -105,15 +183,57 @@ export default function Product({ params }) {
                                 <h4 key={index} className='qty'> <span className='qty-span'>x{map.quantity}</span>{map.item}</h4>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
             </div>
 
             <div className='galleryImg'>
-                <img className='galleryImg-1' src={res[0].gallery.first.desktop} alt="" />
-                <img className='galleryImg-1' src={res[0].gallery.second.desktop} alt="" />
-                <img className='galleryImg-2' src={res[0].gallery.third.desktop} alt="" />
+                <motion.img
+                    className='galleryImg-1'
+                    initial={{
+                        opacity: 0,
+                        y: -200
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                            duration: 1
+                        }
+                    }}
+                    viewport={{ once: true }}
+
+                    src={res[0].gallery.first.desktop} alt="" />
+                <motion.img className='galleryImg-1'
+                    initial={{
+                        opacity: 0,
+                        y: 200
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                            duration: 1
+                        }
+                    }}
+                    viewport={{ once: true }}
+
+                    src={res[0].gallery.second.desktop} alt="" />
+                <motion.img className='galleryImg-2'
+                    initial={{
+                        opacity: 0,
+                        x: 2 % 2 === 0 ? 50 : -50
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            duration: 1
+                        }
+                    }}
+                    viewport={{ once: true }}
+                    src={res[0].gallery.third.desktop} alt="" />
             </div>
 
             <div className='other-product-div'>
@@ -123,7 +243,20 @@ export default function Product({ params }) {
                 </h2>
 
 
-                <div className='other-product-container'>
+                <motion.div className='other-product-container'
+                    initial={{
+                        opacity: 0,
+                        x: 1 % 2 === 0 ? 50 : -50
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            duration: 1
+                        }
+                    }}
+                    viewport={{ once: true }}
+                >
 
 
                     {res[0].others.map((map, index) => (
@@ -136,13 +269,28 @@ export default function Product({ params }) {
 
 
                             <Link href={`/products/${map.slug}`} >
-                                <button style={{ alignSelf: "center" }} className='product-btn header-btn'>
+                                <motion.button style={{ alignSelf: "center" }} className='product-btn header-btn'
+                                    initial={{
+                                        y: 0,
+                                    }}
+                                    animate={{
+                                        y: 7,
+                                    }}
+
+                                    transition={{
+                                        type: 'tween',
+                                        ease: 'easeInOut',
+                                        repeat: Infinity,
+                                        repeatType: 'reverse',
+                                        duration: 1,
+                                    }}
+                                >
                                     see product
-                                </button>
+                                </motion.button>
                             </Link>
                         </div>
                     ))}
-                </div>
+                </motion.div>
 
 
             </div >
