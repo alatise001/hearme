@@ -15,22 +15,22 @@ export default function ProductsCategories({ params }) {
     const filteredObjects = productLists.filter(obj => obj.category === params.slug);
 
 
-    if (isLoading) {
-        return (
+    // if (isLoading) {
+    //     return (
 
 
-            <div className="loading-div">
+    //         <div className="loading-div">
 
-                <Image
-                    src="/assets/loading.gif"
-                    width="200"
-                    height="200"
-                    alt="loading"
+    //             <Image
+    //                 src="/assets/loading.gif"
+    //                 width="200"
+    //                 height="200"
+    //                 alt="loading"
 
-                />
-            </div>
-        )
-    }
+    //             />
+    //         </div>
+    //     )
+    // }
     return (
         <>
             <header className='category-header'>
