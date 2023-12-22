@@ -2,8 +2,6 @@
 import './globals.css'
 import React from 'react'
 import { Manrope } from 'next/font/google'
-// import Link from 'next/link'
-// import LayoutAbout from './components/layout-about'
 import Header from './components/header'
 import CartContextProvider from './contexts/cartContext'
 import { motion } from 'framer-motion'
@@ -47,10 +45,6 @@ export default function RootLayout({ children }) {
           <main>
             {children}
           </main>
-
-          {/* <>
-            <LayoutAbout />
-          </> */}
 
           <motion.div
             initial={{

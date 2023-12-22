@@ -8,8 +8,8 @@ function BackBtn() {
     const router = useRouter()
 
     return (
-        <div onClick={() => router.back()} className='back-btn-div'>
-            <button className='back-btn'>Go Back</button>
+        <div className='back-btn-div'>
+            <button onClick={() => router.back()} className='back-btn'>Go Back</button>
         </div>
     )
 }

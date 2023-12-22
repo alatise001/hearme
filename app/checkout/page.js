@@ -4,8 +4,9 @@ import React from 'react';
 import CheckoutSuccess from '../components/endSale';
 import { CartContext } from '../contexts/cartContext';
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
-// import OnDelivery from "./onDelivery.svg"
+
 
 export default function Components() {
 
@@ -15,23 +16,6 @@ export default function Components() {
         SUBMITTING: "SUBMITTING",
         COMPLETED: "COMPLETED",
     };
-
-    // const motionVariants = {
-    //     out: {
-    //         opacity: 0,
-    //         y: -100
-    //     },
-
-    //     in: {
-    //         opacity: 1,
-    //         y: 0,
-    //         transition: {
-    //             duration: 1
-    //         }
-    //     },
-    //     viewport: { once: true }
-    // }
-
 
     const [formData, setFormData] = React.useState({
         email: "",
@@ -69,7 +53,6 @@ export default function Components() {
     }
 
     function handleChg(e) {
-        // console.log(e.target);
         const { name, value, checked, type } = e.target;
         setFormData((prevState) => {
             return {
@@ -80,7 +63,6 @@ export default function Components() {
     }
 
     function handleBlur(e) {
-        // console.log(e.target);
         const { name } = e.target;
         setTouched((prevState) => {
             return {
@@ -89,10 +71,8 @@ export default function Components() {
             };
         });
 
-        // console.log(touched);
     }
 
-    // console.log(formData);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -136,17 +116,13 @@ export default function Components() {
             if (!formData.emoneynumber && formData.paymentmethod != "cashondelivery") result.emoneynumber = "e-Money Number is required";
             if (!formData.emoneypin && formData.paymentmethod != "cashondelivery") result.emoneypin = "e-Money Pin is required";
         }
-        // if (!formData.emoneynumber && formData.paymentmethod != "cashondelivery") result.emoneynumber = "e-Money Number is required";
-        // if (!formData.emoneypin && formData.paymentmethod != "cashondelivery") result.emoneypin = "e-Money Pin is required";
 
         if (!formData.email) {
             result.email = "Email is required";
         } else if (!ValidateEmail(formData.email)) {
-            // console.log("note corrre");
             result.email = "Email is not correct";
         }
 
-        // if (!formData.password) result.password = "Please enter Password";
         return result;
     }
 
@@ -155,13 +131,14 @@ export default function Components() {
     if (data?.length === 0) {
         return (
             <div className='homepage-speaker-header-2' style={{ textAlign: "center", height: "100vh" }}>
-                <img src="/assets/cart.svg" alt="" />
+                <Image
+                    src="/assets/cart.svg"
+                    alt='/cart'
+                    width={100}
+                    height={100}
+                />
 
                 <p>Your cart is Empty</p>
-                {/* 
-                <Link href={'/'}>
-                    <button className='header-btn product-btn'>Start Shopping</button>
-                </Link> */}
             </div>
         )
 
@@ -171,7 +148,6 @@ export default function Components() {
 
 
     return (
-        // <div className="form">
 
         <>
 
@@ -194,7 +170,6 @@ export default function Components() {
                         viewport={{ once: true }}
 
                     >CHECKOUT</motion.h1>
-                    {/* <div> */}
 
                     <motion.h2 className="payment-sub-title"
                         initial={{
@@ -319,7 +294,6 @@ export default function Components() {
                         </div>
                     </div>
 
-                    {/* </div> */}
 
                     <motion.h2 className="payment-sub-title"
                         initial={{
@@ -673,7 +647,12 @@ export default function Components() {
                                 }}
                                 viewport={{ once: true }}
                             >
-                                <img src="./assets/onDelivery.svg" alt="" />
+                                <Image
+                                    src="./assets/onDelivery.svg"
+                                    alt='On Delivery'
+                                    width={100}
+                                    height={100}
+                                />
 
                                 <p>
                                     The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives
@@ -727,7 +706,13 @@ export default function Components() {
                                     viewport={{ once: true }}
                                 >
                                     <div className='cart-details-checkout-div'>
-                                        <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />
+                                        <Image
+                                            src={`/assets/cart/image-${map.slug}.jpg`}
+                                            alt={`${map.slug}.jpg`}
+                                            width={100}
+                                            height={100}
+                                            className="cart-img"
+                                        />
 
                                         <div className="cart-info">
                                             <h3 className="cart-product-name">{map.name}</h3>
@@ -736,8 +721,6 @@ export default function Components() {
                                     </div>
 
                                     <p className="summary-qty">x{map.quantity}</p>
-                                    {/* <div className=' add-to-cart-divs cart-span' >
-                                    </div> */}
 
                                 </motion.div>
                             ))
@@ -843,11 +826,6 @@ export default function Components() {
                 <CheckoutSuccess />
             }
         </>
-
-
-        // </div >
-
-        // </div>
 
     );
 }

@@ -1,18 +1,21 @@
 import React from 'react'
-import Category from './category'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 
 function CategoryProduct({ index, name, description, newProduct, categoryImage, slug }) {
-    // {name, CategoryImage new description}  
     return (
-        // <>
         <div className='d-flex box' >
             <div className="category-product d-flex">
                 <div className={`category-product-image-bg d-flex ${(index % 2 != 0) ? "order" : ""}`}>
-                    <img className={`category-product-image`} src={categoryImage.desktop} alt="" />
-                    {/* <img className="category-product-image" src="/assets/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg" alt="" /> */}
+                    <Image
+                        src={categoryImage.desktop}
+                        alt='categoryImage'
+                        width={500}
+                        height={500}
+                        className={`category-product-image`}
+                    />
                 </div>
 
                 <div className='product-category-detail d-flex'>
@@ -51,7 +54,6 @@ function CategoryProduct({ index, name, description, newProduct, categoryImage, 
             </div>
 
         </div>
-        // </>
     )
 }
 

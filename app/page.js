@@ -4,6 +4,8 @@ import Link from "next/link";
 import Category from "./components/category"
 import LayoutAbout from "./components/layout-about";
 import { motion } from "framer-motion"
+import Image from 'next/image'
+
 
 export default function Page() {
 
@@ -99,15 +101,14 @@ export default function Page() {
           }}
           viewport={{ once: true }}
         >
+          <Image
+            src="/assets/home/desktop/image-speaker-zx9.png"
+            alt='speaker-zx9'
+            width={100}
+            height={100}
+            className="homepage-speaker-image-1"
+          />
 
-          {/* <picture>
-          <source media="(max-width: 992px)" srcset="./assets/home/desktop/image-speaker-zx9.png" />
-          <source media="(max-width: 768px)" srcset="./assets/home/tablet/image-speaker-zx9.png" />
-          </picture> */}
-
-          <img className="homepage-speaker-image-1" src="./assets/home/desktop/image-speaker-zx9.png" alt="" />
-
-          {/* <img className="homepage-speaker-image-1" src="./assets/home/mobile/image-speaker-zx9.png" alt="" /> */}
 
           <div className="d-flex homepage-speaker-detail-1-div ">
 
@@ -206,13 +207,13 @@ export default function Page() {
           viewport={{ once: true }}
         >
 
-          <picture >
-            <source className="homepage-speaker-image-3" media="(min-width: 992px)" srcset="./assets/home/desktop/image-earphones-yx1.jpg" />
-            <source className="homepage-speaker-image-3" media="(min-width: 768px)" srcset="./assets/home/tablet/image-earphones-yx1.jpg" />
-            <img className="homepage-speaker-image-3" src="./assets/home/desktop/image-earphones-yx1.jpg" alt="" />
-          </picture>
-
-          {/* <img className="homepage-speaker-image-3" src="./assets/home/mobile/image-earphones-yx1.jpg" alt="" /> */}
+          <Image
+            src="/assets/home/desktop/image-earphones-yx1.jpg"
+            alt='earphones-yx1'
+            width={100}
+            height={100}
+            className="homepage-speaker-image-3"
+          />
 
           <div className="homepage-speaker-div-3 d-flex">
             <h1 className="homepage-speaker-header-2">

@@ -1,9 +1,17 @@
 import React from 'react'
+import Image from 'next/image'
+
 
 function LayoutAbout() {
     return (
         <div className="layout-about d-flex">
-            <img className="layout-about-img" src="./assets/shared/desktop/image-best-gear.jpg" alt="" />
+            <Image
+                src="/assets/shared/desktop/image-best-gear.jpg"
+                alt='About Image'
+                width={100}
+                height={100}
+                className="layout-about-img"
+            />
 
             <div className='d-flex layout-about-details'>
                 <span className="title layout-about-title">

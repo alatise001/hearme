@@ -10,10 +10,6 @@ export default function GlobalError({ error, reset }) {
                 <Link href="/" >
                     <button
                         className='header-btn product-btn'
-                    // onClick={
-                    //     // Attempt to recover by trying to re-render the segment
-                    //     () => reset()
-                    // }
                     >
                         Go Back Home
                     </button>

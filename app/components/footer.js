@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
-
+import Image from 'next/image'
 
 function Footer() {
     return (
@@ -10,7 +9,12 @@ function Footer() {
             <div className='footer-div'>
                 <div className='footer-link-div'>
                     <Link href="/">
-                        <img src="/assets/audiophile 2.svg" alt="" />
+                        <Image
+                            src="/assets/audiophile 2.svg"
+                            alt='audiophile'
+                            width={100}
+                            height={100}
+                        />
                     </Link>
                     <div className='footer-links-div'>
 
@@ -63,8 +67,12 @@ function Footer() {
                     </div>
 
                     <div className='footer-btn-div'>
-
-                        <img src="/assets/Social.svg" alt="" />
+                        <Image
+                            src="/assets/Social.svg"
+                            alt='Social'
+                            width={100}
+                            height={100}
+                        />
                     </div>
 
                 </div>

@@ -13,7 +13,7 @@ export default function CatergoriesLayout({ children }) {
             <section className={inter.className}
 
             >
-                {/* <div className={inter.className}> */}
+
                 <div>
                     {children}
                 </div>

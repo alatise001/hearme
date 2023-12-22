@@ -1,5 +1,7 @@
 'use client'
 
+// do not mind
+
 import BackBtn from "./backBtn";
 import React from 'react';
 import { CartContext } from '../contexts/cartContext';

@@ -1,10 +1,13 @@
 "use client"
 
 import React, { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Category from './category';
 import Cart from './cart';
 import { motion } from 'framer-motion';
+import Image from 'next/image'
+
 
 const containerVariants = {
     open: (height = 1000) => ({
@@ -27,29 +30,11 @@ const containerVariants = {
     },
 }
 
-// const containerVariants = {
-//     hidden: {
-//         opacity: 0,
-//         x: "-100%"
-//     },
-//     visible: {
-//         opacity: 1,
-//         x: 0,
-//         transition: {
-//             type: 'spring',
-//             stiffness: 37,
-//             mass: 1,
-//             damping: 5,
-//         },
-
-//         exit: {
-//             x: "-100vh",
-//             transition: { ease: "easeInOut" }
-//         }
-//     },
-// }
 
 export default function Header() {
+
+    const pathname = usePathname()
+    console.log(pathname);
 
     const [show, setShow] = useState(false)
     const [cart, setCart] = useState(false)
@@ -85,41 +70,56 @@ export default function Header() {
     return (
         <>
             <header className='header d-flex'>
-                {/* <img src="/assets/Group.svg" alt="" /> */}
                 <div className='option-hamburger' onClick={cart ? null : toggleMenu}
                     style={{ cursor: "pointer" }}
                 >
-                    <img src="/assets/Group.svg" alt="" />
+                    <Image
+                        src="/assets/Group.svg"
+                        alt='Group'
+                        width={16}
+                        height={15}
+                    />
                 </div>
 
 
                 <Link href="/">
-                    <img className='headerIcon' src="/assets/audiophile 2.svg" alt="" />
+                    <Image
+                        src="/assets/audiophile 2.svg"
+                        alt='Social'
+                        width={143}
+                        height={25}
+                        className='headerIcon'
+                    />
                 </Link>
 
                 <div className='footer-links-div option-hamburger-desktop'>
 
                     <Link href={"/"}>
-                        <h3 className='footerlinks'>HOME</h3>
+                        <h3 className={`footerlinks ${(pathname == "/") && "active"}`}>HOME</h3>
                     </Link>
 
                     <Link href={`/categories/${"headphones"}`}>
-                        <h3 className='footerlinks'>HEADPHONES</h3>
+                        <h3 className={`footerlinks ${(pathname == "/categories/headphones") && "active"}`}>HEADPHONES</h3>
                     </Link>
 
                     <Link href={`/categories/${"speakers"}`}>
-                        <h3 className='footerlinks'>SPEAKERS</h3>
+                        <h3 className={`footerlinks ${(pathname == "/categories/speakers") && "active"}`}>SPEAKERS</h3>
                     </Link>
 
                     <Link href={`/categories/${"earphones"}`}>
-                        <h3 className='footerlinks'>EARPHONES</h3>
+                        <h3 className={`footerlinks ${(pathname == "/categories/earphones") && "active"}`}>EARPHONES</h3>
                     </Link>
                 </div>
 
                 <div onClick={show ? null : toggleCart}
                     style={{ cursor: "pointer" }}
                 >
-                    <img src="/assets/cart Icon.svg" alt="" />
+                    <Image
+                        src="/assets/cart Icon.svg"
+                        alt='Icon'
+                        width={16}
+                        height={15}
+                    />
                 </div>
             </header>
 
@@ -127,7 +127,6 @@ export default function Header() {
                 variants={containerVariants}
                 initial={false}
                 animate={show ? "open" : "closed"}
-                // custom={height}
                 ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}>
                 <Category />
             </motion.div>

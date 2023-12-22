@@ -1,4 +1,3 @@
-// import { Inter } from 'next/font/google'
 'use client'
 import Category from '../components/category'
 import BackBtn from '../components/backBtn'
@@ -14,7 +13,6 @@ export default function ProductsLayout({ children }) {
         <>
             <section className={inter.className}>
                 <BackBtn />
-                {/* <div className={inter.className}> */}
                 <div>
                     {children}
                 </div>
@@ -35,7 +33,6 @@ export default function ProductsLayout({ children }) {
                     className='header-category-margin'>
                     <Category />
                 </motion.div>
-                {/* </div> */}
 
             </section>
 

@@ -6,7 +6,6 @@ export const CartContext = React.createContext()
 
 function CartContextProvider({ children }) {
 
-    // const { isUser } = React.useContext(AuthContext)
 
     function cartFunction(state, action) {
         switch (action.type) {
@@ -29,10 +28,6 @@ function CartContextProvider({ children }) {
 
 
     function add(action, state) {
-        // const itemInCart = state.find((i) => i.id === action.id)
-        // if (itemInCart) {
-        //     return state.map(map => map.id === action.id ? { ...map, quantity: map.quantity + 1 } : map)
-        // }
         return state.map(map => {
             if (map.id === action.id) {
                 return { ...map, quantity: map.quantity + 1 }
@@ -42,10 +37,6 @@ function CartContextProvider({ children }) {
     }
 
     function sub(action, state) {
-        // const itemInCart = state.find((i) => i.id === action.id)
-        // if (itemInCart) {
-        //     return localState.map(map => map.id === action.id ? { ...map, quantity: map.quantity - 1 } : map)
-        // }
         return state.map(map => {
             if (map.id === action.id) {
                 return { ...map, quantity: map.quantity - 1 }
@@ -60,32 +51,20 @@ function CartContextProvider({ children }) {
             return [...state, { id: action.id, quantity: 1, price: action.price, name: action.name, slug: action.slug }]
         }
 
-        // return state.map(map => {
-        //     if (!(map.id === action.id)) {
-        //         return [...state, { id: action.id, quantity: 1 }]
-        //     }
-        //     return map
-        // })
     }
 
     function clearCart(action, state) {
-        localStorage.clear();
+        return []
     }
 
 
 
-    // const [cart, dispatch] = useReducer(cartFunction, [])
-    // const localState = JSON.parse(localStorage.getItem("cart"));
     const localState = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("cart")) : null
 
     const [cart, dispatch] = useReducer(cartFunction, localState || [])
 
 
     React.useEffect(() => {
-        // dispatch({
-        //     type: "setCart",
-        //     data: localState
-        // })
 
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);

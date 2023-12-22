@@ -3,6 +3,8 @@ import React from 'react';
 
 import { CartContext } from '../contexts/cartContext';
 import Link from 'next/link';
+import Image from 'next/image'
+
 
 
 export default function CheckoutSuccess() {
@@ -27,13 +29,14 @@ export default function CheckoutSuccess() {
     if (data?.length === 0) {
         return (
             <div className='homepage-speaker-header-2' style={{ textAlign: "center", height: "100vh" }}>
-                <img src="/assets/cart.svg" alt="" />
+                <Image
+                    src="/assets/cart.svg"
+                    alt='cart'
+                    width={100}
+                    height={100}
+                />
 
                 <p>Your cart is Empty</p>
-                {/* 
-                <Link href={'/'}>
-                    <button className='header-btn product-btn'>Start Shopping</button>
-                </Link> */}
             </div>
         )
 
@@ -43,7 +46,12 @@ export default function CheckoutSuccess() {
         <div className="confirm-container">
             <div className="confirm">
                 <div className="checkbox d-flex">
-                    <img src="/assets/Check.svg" alt="" />
+                    <Image
+                        src="/assets/Check.svg"
+                        alt='Check'
+                        width={35}
+                        height={35}
+                    />
 
                 </div>
 
@@ -56,7 +64,14 @@ export default function CheckoutSuccess() {
 
                         < div className="cart-details">
 
-                            <img className="cart-img" src={`/assets/cart/image-${data[0].slug}.jpg`} alt="" />
+                            <Image
+                                src={`/assets/cart/image-${data[0].slug}.jpg`}
+                                alt={`${data[0].slug}.jpg`}
+                                width={500}
+                                height={500}
+                                className="cart-img"
+                            />
+
 
                             <div className="cart-info">
                                 <h3 className="cart-product-name">{data[0].name}</h3>

@@ -6,20 +6,9 @@ import useProductsDataManager from '@/hooks/useProductsDataManager';
 import { motion } from 'framer-motion'
 
 
-// async function fetchCategoryInfo(params) {
-
-//     const result = await axios.get('http://localhost:3000/api/products')
-
-//     const filteredObjects = result.data.products.filter(obj => obj.category === params.slug);
-//     return filteredObjects;
-// }
-
-
 export default function ProductsCategories({ params }) {
-    // const categoryInfo = await fetchCategoryInfo(params)
-    // console.log(categoryInfo);
+
     const { isLoading, productLists, iserror, dispatch } = useProductsDataManager()
-    // console.log(productLists, 'ran');
 
     console.log(params.slug);
 
@@ -42,7 +31,6 @@ export default function ProductsCategories({ params }) {
             </div>
         )
     }
-    // const { id, name, image, category, categoryImage, price, description, } = categoryInfo
     return (
         <>
             <header className='category-header'>

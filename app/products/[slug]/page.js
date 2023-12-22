@@ -6,21 +6,16 @@ import Image from 'next/image';
 import { CartContext } from '@/app/contexts/cartContext';
 import { motion } from 'framer-motion'
 
-// import AddToCart from '@/app/components/addToCart';
 
 
 
 export default function Product({ params }) {
 
     const { data, dispatch } = React.useContext(CartContext)
-    // console.log(data);
 
     const { isLoading, productLists, iserror } = useProductsDataManager()
 
     const res = productLists.filter(obj => obj.slug === params.slug);
-    // console.log(params.slug);
-    // console.log(res);
-    // console.log(isLoading);
 
     if (isLoading) {
         return (
@@ -41,12 +36,10 @@ export default function Product({ params }) {
 
     function disable(id) {
         const resp = data.filter(obj => obj.id === res[0].id);
-        // console.log(res);
 
         return resp
     }
 
-    // console.log(disable()[0].quantity);
 
     return (
         <div className='d-flex category-product-container'>
@@ -70,7 +63,13 @@ export default function Product({ params }) {
                         }}
                         viewport={{ once: true }}
                     >
-                        <img className='category-product-image-2' src={res[0].categoryImage.desktop} alt="" />
+                        <Image
+                            src={res[0].categoryImage.desktop}
+                            alt={res[0].categoryImage.desktop}
+                            width={100}
+                            height={100}
+                            className='category-product-image-2'
+                        />
                     </motion.div>
 
                     <motion.div className='product-cart-info-div'
@@ -93,7 +92,6 @@ export default function Product({ params }) {
 
 
                         <h1 className='title category-product-title'>{res[0].name}</h1>
-                        {/* <h1 className='title category-product-title'>{res[0].category}</h1> */}
                         <p className='pgh category-product-pgh-header'>
                             {res[0].description}
                         </p>
@@ -101,7 +99,6 @@ export default function Product({ params }) {
                         <h3 style={{ textAlign: "start" }}>$ {res[0].price}</h3>
 
                         <div className=' add-to-cart-div'>
-                            {/* <AddToCart /> */}
                             <div className=' add-to-cart-divs add-to-cart-span' >
                                 <button className='arthBtn' disabled={(disable()[0]?.quantity <= 1) ? true : false} onClick={() => dispatch({ type: "sub", id: res[0].id })}>−</button>
                                 <span>{data?.map(map => ((map.id === res[0].id) ? map.quantity : ""))}</span>
@@ -123,7 +120,7 @@ export default function Product({ params }) {
                                     repeatType: 'reverse',
                                     duration: 1,
                                 }}
-                                onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })}>
+                                onClick={() => dispatch({ type: "addToCart", id: res[0].id, price: res[0].price, name: res[0].name, slug: res[0].slug })} disabled={(disable()[0]?.quantity > 1)} >
                                 add to cart
                             </motion.button>
                         </div>
@@ -262,7 +259,13 @@ export default function Product({ params }) {
                     {res[0].others.map((map, index) => (
                         <div key={index} className='other-product-inner-div'>
                             <div className='d-flex other-product-img-bg'>
-                                <img className='other-product-img' src={map.image.desktop} alt="" />
+                                <Image
+                                    src={map.image.desktop}
+                                    alt={map.image.desktop}
+                                    width={100}
+                                    height={100}
+                                    className='other-product-img'
+                                />
                             </div>
 
                             <h2 className='sub-title'>{map.name}</h2>

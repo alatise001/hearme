@@ -3,6 +3,8 @@
 import React from 'react';
 import { CartContext } from '../contexts/cartContext';
 import Link from 'next/link';
+import Image from 'next/image'
+
 
 
 export default function Cart() {
@@ -24,21 +26,22 @@ export default function Cart() {
 
     if (data?.length === 0) {
         return (
-            <div className='homepage-speaker-header-2' style={{ textAlign: "center" }}>
-                <img src="/assets/cart.svg" alt="" />
-
+            <div className='homepage-speaker-header-2 ' style={{ textAlign: "center" }}>
+                <Image
+                    src="/assets/cart.svg"
+                    alt='cart'
+                    width={100}
+                    height={100}
+                />
                 <p>Your cart is Empty</p>
-                {/* 
-                <Link href={'/'}>
-                    <button className='header-btn product-btn'>Start Shopping</button>
-                </Link> */}
+
+
             </div>
         )
     }
 
 
     return (
-        // <div className="cart-container">
         < div className="cart" >
 
 
@@ -51,7 +54,13 @@ export default function Cart() {
                 {
                     data?.map((map) => (
                         <div key={map.id} className="cart-details">
-                            <img className="cart-img" src={`/assets/cart/image-${map.slug}.jpg`} alt="" />
+                            <Image
+                                src={`/assets/cart/image-${map.slug}.jpg`}
+                                alt={`${map.slug}.jpg`}
+                                width={100}
+                                height={100}
+                                className="cart-img"
+                            />
 
                             <div className="cart-info">
                                 <h3 className="cart-product-name">{map.name}</h3>
@@ -79,6 +88,5 @@ export default function Cart() {
             </Link>
 
         </div >
-        // </div >
     )
 }
