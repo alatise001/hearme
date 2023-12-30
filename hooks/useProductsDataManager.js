@@ -9,7 +9,8 @@ export const REQUEST_STATUS = {
     FAILURE: "failure"
 }
 
-const restUrl = 'http://localhost:3000/api/products'
+const restUrl = '/api/products'
+// const restUrl = 'http://localhost:3000/api/products'
 
 function useProductsDataManager() {
 
