@@ -11,11 +11,6 @@ import { usePathname } from 'next/navigation'
 import Footer from './components/footer'
 const inter = Manrope({ subsets: ['latin'] })
 
-// export const metadata = {
-//   title: 'Hear Me',
-//   description: 'Audiophilie E-Store',
-// }
-
 export default function RootLayout({ children }) {
 
   const pathname = usePathname()
