@@ -367,7 +367,7 @@ button {
   background-image: url("/assets/home/mobile/image-speaker-zx7.jpg");
   background-position: left;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 90%;
   margin: 0 auto;
   height: 22.9375rem;
@@ -876,6 +876,7 @@ button {
   align-items: center;
   position: absolute;
   top: 0;
+  width: 100%;
   /* height: 100vh; */
   background-color: rgba(0, 0, 0, 0.3);
 }
@@ -885,7 +886,7 @@ button {
   display: flex;
   flex-direction: column;
   /* outline: auto; */
-  height: max-content;
+  height: 90vh;
   margin: 3rem auto;
   padding: 1.5rem;
   width: 90%;
