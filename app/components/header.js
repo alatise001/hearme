@@ -130,6 +130,8 @@ export default function Header() {
                 ref={ref} className={`toggle toggleNav ${show ? "showNav" : " "} d-flex`} onClick={toggleMenu}>
                 <Category />
             </motion.div>
+
+
             <motion.div
                 variants={containerVariants}
                 initial={false}

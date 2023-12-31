@@ -11,11 +11,7 @@ function LayoutAbout() {
                 width={100}
                 height={100}
                 className="layout-about-img"
-                // quality={100}
-                unoptimized={true}
             />
-            {/* <img className="layout-about-img" src="/assets/shared/desktop/image-best-gear.jpg" alt='About Image' /> */}
-
             <div className='d-flex layout-about-details'>
                 <span className="title layout-about-title">
                     <h1>BRINGING YOU THE</h1>
