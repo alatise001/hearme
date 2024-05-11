@@ -27,14 +27,7 @@ function CartContextProvider({ children }) {
     }
 
 
-    function add(action, state) {
-        return state.map(map => {
-            if (map.id === action.id) {
-                return { ...map, quantity: map.quantity + 1 }
-            }
-            return map
-        })
-    }
+
 
     function sub(action, state) {
         return state.map(map => {
