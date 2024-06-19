@@ -39,7 +39,6 @@ export default function Components() {
     const isValid = Object.keys(errors).length === 0;
 
     const { data } = React.useContext(CartContext)
-    console.log(data);
 
     function total(params) {
         const tottal = data?.map(map => (
